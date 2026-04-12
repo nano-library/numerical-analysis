@@ -69,8 +69,1251 @@
 		<div class="content-body">
             
 			<div class="intro-card">
-				✨ 
+				✨ To factor the positive definite \(n \times n\) matrix \(A\) into \(LL^T\), where \(L\) is lower triangular.
 			</div>
+
+            <div class="callout def">
+				<span class="callout-icon">🌸</span>
+				<div>
+				<div class="callout-title"></div>
+                    <p>If A is real symmetric matrix and positive definite matrix, then it has a unique factorisation \(A = LL^T\), in which \(L\) is lower triangular with a positive diagonal.</p>
+                </div>
+			</div>  
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Cholesky Factorisation</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">A</span>
+                    <span class="op"> = </span>
+                    <span class="matrix">
+                        <span class="matrix-bracket open"></span>
+                        <span class="matrix-body">
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">a</span><sub>11</sub></span>
+                                <span class="matrix-cell"><span class="var">a</span><sub>12</sub></span>
+                                <span class="matrix-cell"><span class="var">a</span><sub>13</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">a</span><sub>21</sub></span>
+                                <span class="matrix-cell"><span class="var">a</span><sub>22</sub></span>
+                                <span class="matrix-cell"><span class="var">a</span><sub>23</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">a</span><sub>31</sub></span>
+                                <span class="matrix-cell"><span class="var">a</span><sub>32</sub></span>
+                                <span class="matrix-cell"><span class="var">a</span><sub>33</sub></span>
+                            </span>
+                        </span>
+                        <span class="matrix-bracket close"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Cholesky Factorisation</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(A\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(LL^T\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Cholesky Factorisation</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">A</span>
+                    <span class="op"> = </span>
+                    <span class="matrix">
+                        <span class="matrix-bracket open"></span>
+                        <span class="matrix-body">
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">l</span><sub>11</sub></span>
+                                <span class="matrix-cell"><span class="var">0</span><sub>⠀⠀</sub></span>
+                                <span class="matrix-cell"><span class="var">0</span><sub>⠀⠀</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">l</span><sub>21</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>22</sub></span>
+                                <span class="matrix-cell"><span class="var">0</span><sub>⠀⠀</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">l</span><sub>31</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>32</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>33</sub></span>
+                            </span>
+                        </span>
+                        <span class="matrix-bracket close"></span>
+                    </span>
+                    <span class="matrix">
+                        <span class="matrix-bracket open"></span>
+                        <span class="matrix-body">
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">l</span><sub>11</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>13</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>13</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">0</span><sub>⠀⠀</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>22</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>23</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">0</span><sub>⠀⠀</sub></span>
+                                <span class="matrix-cell"><span class="var">0</span><sub>⠀⠀</sub></span>
+                                <span class="matrix-cell"><span class="var">l</span><sub>33</sub></span>
+                            </span>
+                        </span>
+                        <span class="matrix-bracket close"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">cholesky factorization of matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Find the Cholesky factorization of the following matrix:</p>
+                            \begin{bmatrix}
+                            4 & 2 & 2\\
+                            2 & 5 & 1\\
+                            2 & 1 & 6
+                            \end{bmatrix}    
+                            <p>Check whether all the principal minors are positive before proceeding with the factorization.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>For a symmetric matrix A to have a Cholesky factorization, it must be positive definite, which means all its principal minors must be positive.</p>
+                            <p><strong>Step 1: Check principal minors</strong></p>
+                            <p>The leading principal minors are</p>
+                            \[
+                                D_1 =
+                                \begin{vmatrix}
+                                4
+                                \end{vmatrix} 
+                                = 4 > 0
+                            \]
+                            \[
+                                D_2 = 
+                                \begin{vmatrix}
+                                4 & 2\\
+                                2 & 5\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_2 =
+                                |20 - 4|
+                                =
+                                16 > 0
+                            \]
+                            \[
+                                D_3 = 
+                                \begin{vmatrix}
+                                4 & 2 & 2\\
+                                2 & 5 & 1\\
+                                2 & 1 & 6
+                                \end{vmatrix}
+                            \]
+                            \[
+                                \small
+                                D_3 =
+                                (4) 
+                                \begin{vmatrix}
+                                5 & 1\\
+                                1 & 6\\
+                                \end{vmatrix} 
+                                - (2)
+                                \begin{vmatrix}
+                                2 & 1\\
+                                2 & 6\\
+                                \end{vmatrix}
+                                + (2)
+                                \begin{vmatrix}
+                                2 & 5\\
+                                2 & 1\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_3 = 4 (30 - 1) - 2 (12 - 2) + 2 (2 - 10)\\[10pt]
+                                D_3 = 4(29) - 2(10) + 2(-8)\\[10pt] 
+                                D_3 = 116 - 20 - 8\\[10pt]
+                                D_3 = 80 > 0
+                            \]
+                            <p>Since all principal minors are positive, \(A\) is positive definite, and we can proceed with the Cholesky factorization.</p>
+                            <p><strong>Step 2: Assume lower triangular matrix \(L\)</strong></p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                l_{11} & 0 & 0\\
+                                l_{21} & l_{22} & 0\\
+                                l_{31} & l_{32} & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                l_{11} &  l_{21} &  l_{31}\\
+                                0 & l_{22} & l_{32}\\
+                                0 & 0 & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \small
+                                LL^T = 
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                A = LL^T
+                            \]
+                            \[
+                                \begin{aligned}
+                                l_{11}^2 &= 4 \\[10pt]
+                                l_{11}l_{21} &= 2 \\[10pt]
+                                l_{11}l_{31} &= 2 \\[10pt]
+                                l_{21}^2 + l_{22}^2 &= 5 \\[10pt]
+                                l_{21}l_{31} + l_{22}l_{33} &= 1 \\[10pt]
+                                l_{31}^2 + l_{32}^2 + l_{33}^2 &= 6
+                                \end{aligned}
+                            \]
+                            <p>Solving the equations, we get</p>
+                            \[
+                                \begin{aligned}
+                                l_{11} &= 2 \\[10pt]
+                                l_{21} &= 1 \\[10pt]
+                                l_{22} &= 2 \\[10pt]
+                                l_{31} &= 1 \\[10pt]
+                                l_{32} &= 0 \\[10pt]
+                                l_{33} &= \sqrt{5} 
+                                \end{aligned}
+                            \]
+                            <p>We obtain \(L\) and \(L^T\)</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                2 & 0 & 0\\
+                                1 & 2 & 0\\
+                                1 & 0 & \sqrt{5}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                2 & 1 & 1\\
+                                0 & 2 & 0\\
+                                0 & 0 & \sqrt{5}
+                                \end{bmatrix} 
+                            \]
+                            <p>Thus, the Cholesky factorization of \(A\) is</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                2 & 0 & 0\\
+                                1 & 2 & 0\\
+                                1 & 0 & \sqrt{5}
+                                \end{bmatrix} 
+                                \begin{bmatrix}
+                                2 & 1 & 1\\
+                                0 & 2 & 0\\
+                                0 & 0 & \sqrt{5}
+                                \end{bmatrix} 
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">cholesky factorization of matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Find the inverse of the matrix using the Cholesky method:</p>
+                            \begin{bmatrix}
+                            2 & -1 & 2\\
+                            -1 & 1 & -1\\
+                            2 & -1 & 3
+                            \end{bmatrix}    
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>For a symmetric matrix A to have a Cholesky factorization, it must be positive definite, which means all its principal minors must be positive.</p>
+                            <p><strong>Step 1: Check principal minors</strong></p>
+                            <p>The leading principal minors are</p>
+                            \[
+                                D_1 =
+                                \begin{vmatrix}
+                                2
+                                \end{vmatrix} 
+                                = 2 > 0
+                            \]
+                            \[
+                                D_2 = 
+                                \begin{vmatrix}
+                                2 & -1\\
+                                -1 & 1\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_2 =
+                                |2 - 1|
+                                =
+                                2 > 0
+                            \]
+                            \[
+                                D_3 = 
+                                \begin{vmatrix}
+                                2 & -1 & 2\\
+                                -1 & 1 & -1\\
+                                2 & -1 & 3
+                                \end{vmatrix}
+                            \]
+                            \[
+                                \small
+                                D_3 =
+                                (2) 
+                                \begin{vmatrix}
+                                1 & -1\\
+                                -1 & 3\\
+                                \end{vmatrix} 
+                                - (-1)
+                                \begin{vmatrix}
+                                -1 & -1\\
+                                2 & 3\\
+                                \end{vmatrix}
+                                + (2)
+                                \begin{vmatrix}
+                                -1 & 1\\
+                                2 & -1\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_3 = 2 (3 - 1) + 1 (-3 + 2) + 2 (1 - 2)\\[10pt]
+                                D_3 = 2(2) + 1(-1) + 2(-1)\\[10pt] 
+                                D_3 = 4 - 1 - 2\\[10pt]
+                                D_3 = 1 > 0
+                            \]
+                            <p>Since all principal minors are positive, \(A\) is positive definite, and we can proceed with the Cholesky factorization.</p>
+                            <p><strong>Step 2: Assume lower triangular matrix \(L\)</strong></p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                l_{11} & 0 & 0\\
+                                l_{21} & l_{22} & 0\\
+                                l_{31} & l_{32} & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                l_{11} &  l_{21} &  l_{31}\\
+                                0 & l_{22} & l_{32}\\
+                                0 & 0 & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \small
+                                LL^T = 
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                A = LL^T
+                            \]
+                            \[
+                                \begin{aligned}
+                                l_{11}^2 &= 2 \\[10pt]
+                                l_{11}l_{21} &= -1 \\[10pt]
+                                l_{11}l_{31} &= 2 \\[10pt]
+                                l_{21}^2 + l_{22}^2 &= 1 \\[10pt]
+                                l_{21}l_{31} + l_{22}l_{33} &= -1 \\[10pt]
+                                l_{31}^2 + l_{32}^2 + l_{33}^2 &= 3
+                                \end{aligned}
+                            \]
+                            <p>Solving the equations, we get</p>
+                            \[
+                                \begin{aligned}
+                                l_{11} &= \sqrt{2} \\[10pt]
+                                l_{21} &= \frac{-1}{\sqrt{2}} \\[10pt]
+                                l_{22} &= \frac{1}{\sqrt{2}} \\[10pt]
+                                l_{31} &= \frac{2}{\sqrt{2}} \\[10pt]
+                                l_{32} &= 0 \\[10pt]
+                                l_{33} &= 1
+                                \end{aligned}
+                            \]
+                            <p>We obtain \(L\) and \(L^T\)</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                \sqrt{2} & 0 & 0\\
+                                \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                                \frac{2}{\sqrt{2}} & 0 & 1
+                                \end{bmatrix} 
+                            \]
+                            <p>Since \(L^{-1}\) is also a lower triangular matrix, we solve for it:</p>
+                            \[
+                                LL^{-1} = I
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                \sqrt{2} & 0 & 0\\
+                                \frac{-1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0\\
+                                \sqrt{2} & 0 & 1
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                l_{11}^{*} & 0 & 0\\
+                                l_{21}^{*} & l_{22}^{*} & 0\\
+                                l_{31}^{*} & l_{32}^{*} & l_{33}^{*}
+                                \end{bmatrix} 
+                                =
+                                \begin{bmatrix}
+                                1 & 0 & 0\\
+                                0 & 1 & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            <p>Solving,</p>
+                            \[
+                                \begin{bmatrix}
+                                \sqrt{2}l_{11}^{*} & 0 & 0\\
+                                \frac{-l_{11}^{*}+l_{21}^{*}}{\sqrt{2}} & \frac{l_{22}^{*}}{\sqrt{2}} & 0\\
+                                \sqrt{2}l_{11}^{*}+l_{31}^{*} & l_{32}^{*} & l_{33}^{*}
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                1 & 0 & 0\\
+                                0 & 1 & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \begin{aligned}
+                                \sqrt{2}l_{11}^{*} &= 1 \\[10pt]
+                                \frac{-l_{11}^{*}+l_{21}^{*}}{\sqrt{2}} &= 0 \\[10pt]
+                                \frac{l_{22}^{*}}{\sqrt{2}} &= 1 \\[10pt]
+                                \sqrt{2}l_{11}^{*}+l_{31}^{*} &= 0 \\[10pt]
+                                l_{32}^{*} &= 0 \\[10pt]
+                                l_{33} &= 1
+                                \end{aligned}
+                            \]
+                            <p>we get,</p>
+                            \[
+                                \begin{aligned}
+                                l_{11}^{*} &= \frac{1}{\sqrt{2}} \\[10pt]
+                                l_{21}^{*} &= \frac{1}{\sqrt{2}} \\[10pt]
+                                l_{22}^{*} &= \sqrt{2} \\[10pt]
+                                l_{31}^{*} &= -1 \\[10pt]
+                                l_{32}^{*} &= 0 \\[10pt]
+                                l_{33}^{*} &= 1
+                                \end{aligned}
+                            \]
+                            <p>Now, \(L^{-1}\) can be written as</p>
+                            \[
+                                L^{-1} = 
+                                \begin{bmatrix}
+                                \frac{1}{\sqrt{2}} & 0 & 0\\
+                                \frac{1}{\sqrt{2}} & \sqrt{2} & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            <p>For \(A^{-1}\),</p>
+                            \[
+                                A^{-1} = (LL^T)^{-1} = (L^T)^{-1}(L)^{-1} = (L^{-1})^TL^{-1}
+                            \]
+                            \[
+                                (L^{-1})^T  = 
+                                \begin{bmatrix}
+                                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & -1\\
+                                0 & \sqrt{2} & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                (L^{-1})^TL^{-1} = 
+                                \begin{bmatrix}
+                                \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & -1\\
+                                0 & \sqrt{2} & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                \frac{1}{\sqrt{2}} & 0 & 0\\
+                                \frac{1}{\sqrt{2}} & \sqrt{2} & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                (L^{-1})^TL^{-1} = 
+                                \begin{bmatrix}
+                                2 & 1 & -1\\
+                                1 & 2 & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                A^{-1} = (L^{-1})^TL^{-1}
+                            \]
+                            <p>Thus, the inverse of \(A\) is:</p>
+                            \[
+                                A^{-1} = 
+                                \begin{bmatrix}
+                                2 & 1 & -1\\
+                                1 & 2 & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 3</span>
+                    <span class="example-sub">cholesky factorization of matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Find the Cholesky factorization of the following matrix:</p>
+                            \begin{bmatrix}
+                            25 & 15 & -5\\
+                            15 & 18 & 0\\
+                            -5 & 0 & 11
+                            \end{bmatrix}    
+                            <p>Check whether all the principal minors are positive before proceeding with the factorization.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>For a symmetric matrix A to have a Cholesky factorization, it must be positive definite, which means all its principal minors must be positive.</p>
+                            <p><strong>Step 1: Check principal minors</strong></p>
+                            <p>The leading principal minors are</p>
+                            \[
+                                D_1 =
+                                \begin{vmatrix}
+                                25
+                                \end{vmatrix} 
+                                = 25 > 0
+                            \]
+                            \[
+                                D_2 = 
+                                \begin{vmatrix}
+                                25 & 15\\
+                                15 & 18\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_2 =
+                                |450 - 225|
+                                =
+                                225 > 0
+                            \]
+                            \[
+                                D_3 = 
+                                \begin{bmatrix}
+                                25 & 15 & -5\\
+                                15 & 18 & 0\\
+                                -5 & 0 & 11
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \small
+                                D_3 =
+                                (25) 
+                                \begin{vmatrix}
+                                18 & 0\\
+                                0 & 11\\
+                                \end{vmatrix} 
+                                - (15)
+                                \begin{vmatrix}
+                                15 & 0\\
+                                -5 & 11\\
+                                \end{vmatrix}
+                                + (-5)
+                                \begin{vmatrix}
+                                15 & 18\\
+                                -5 & 0\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_3 = 25 (198 - 0) - 15 (165 - 0) - 5 (0 + 90)\\[10pt]
+                                D_3 = 25(198) - 15(165) - 5(90)\\[10pt] 
+                                D_3 = 4950 - 2475 - 450\\[10pt]
+                                D_3 = 2025 > 0
+                            \]
+                            <p>Since all principal minors are positive, \(A\) is positive definite, and we can proceed with the Cholesky factorization.</p>
+                            <p><strong>Step 2: Assume lower triangular matrix \(L\)</strong></p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                l_{11} & 0 & 0\\
+                                l_{21} & l_{22} & 0\\
+                                l_{31} & l_{32} & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                l_{11} &  l_{21} &  l_{31}\\
+                                0 & l_{22} & l_{32}\\
+                                0 & 0 & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \small
+                                LL^T = 
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                A = LL^T
+                            \]
+                            \[
+                                \begin{aligned}
+                                l_{11}^2 &= 25 \\[10pt]
+                                l_{11}l_{21} &= 15 \\[10pt]
+                                l_{11}l_{31} &= -5 \\[10pt]
+                                l_{21}^2 + l_{22}^2 &= 18 \\[10pt]
+                                l_{21}l_{31} + l_{22}l_{32} &= 0 \\[10pt]
+                                l_{31}^2 + l_{32}^2 + l_{33}^2 &= 11
+                                \end{aligned}
+                            \]
+                            <p>Solving the equations, we get</p>
+                            \[
+                                \begin{aligned}
+                                l_{11} &= 5 \\[10pt]
+                                l_{21} &= 3 \\[10pt]
+                                l_{22} &= 3 \\[10pt]
+                                l_{31} &= -1 \\[10pt]
+                                l_{32} &= 1 \\[10pt]
+                                l_{33} &= 3 
+                                \end{aligned}
+                            \]
+                            <p>We obtain \(L\) and \(L^T\)</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                5 & 0 & 0\\
+                                3 & 3 & 0\\
+                                -1 & 1 & 3
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                5 & 3 & -1\\
+                                0 & 3 & 1\\
+                                0 & 0 & 3
+                                \end{bmatrix} 
+                            \]
+                            <p>Thus, the Cholesky factorization of \(A\) is</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                5 & 0 & 0\\
+                                3 & 3 & 0\\
+                                -1 & 1 & 3
+                                \end{bmatrix} 
+                                \begin{bmatrix}
+                                5 & 3 & -1\\
+                                0 & 3 & 1\\
+                                0 & 0 & 3
+                                \end{bmatrix} 
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 4</span>
+                    <span class="example-sub">cholesky factorization of matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Find the inverse of the matrix using the Cholesky method:</p>
+                            \[
+                                A = 
+                                \begin{bmatrix}
+                                4 & 2 & 4\\
+                                2 & 2 & 2\\
+                                4 & 2 & 5
+                                \end{bmatrix}    
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>For a symmetric matrix A to have a Cholesky factorization, it must be positive definite, which means all its principal minors must be positive.</p>
+                            <p><strong>Step 1: Check principal minors</strong></p>
+                            <p>The leading principal minors are</p>
+                            \[
+                                D_1 =
+                                \begin{vmatrix}
+                                4
+                                \end{vmatrix} 
+                                = 4 > 0
+                            \]
+                            \[
+                                D_2 = 
+                                \begin{vmatrix}
+                                4 & 2\\
+                                2 & 2\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_2 =
+                                |8 - 4|
+                                =
+                                4 > 0
+                            \]
+                            \[
+                                D_3 = 
+                                \begin{vmatrix}
+                                4 & 2 & 4\\
+                                2 & 2 & 2\\
+                                4 & 2 & 5
+                                \end{vmatrix}
+                            \]
+                            \[
+                                \small
+                                D_3 =
+                                (4) 
+                                \begin{vmatrix}
+                                2 & 2\\
+                                2 & 5\\
+                                \end{vmatrix} 
+                                - (2)
+                                \begin{vmatrix}
+                                2 & 2\\
+                                4 & 5\\
+                                \end{vmatrix}
+                                + (4)
+                                \begin{vmatrix}
+                                2 & 2\\
+                                4 & 2\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_3 = 4(10 - 4) - 2(10 - 8) + 4 (4 - 8)\\[10pt]
+                                D_3 = 4(6) - 2(2) + 4(-4)\\[10pt] 
+                                D_3 = 24 - 4 - 16\\[10pt]
+                                D_3 = 4 > 0
+                            \]
+                            <p>Since all principal minors are positive, \(A\) is positive definite, and we can proceed with the Cholesky factorization.</p>
+                            <p><strong>Step 2: Assume lower triangular matrix \(L\)</strong></p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                l_{11} & 0 & 0\\
+                                l_{21} & l_{22} & 0\\
+                                l_{31} & l_{32} & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                l_{11} &  l_{21} &  l_{31}\\
+                                0 & l_{22} & l_{32}\\
+                                0 & 0 & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \small
+                                LL^T = 
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                A = LL^T
+                            \]
+                            \[  
+                                \tiny
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                                =
+                                \begin{bmatrix}
+                                4 & 2 & 4\\
+                                2 & 2 & 2\\
+                                4 & 2 & 5
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \begin{aligned}
+                                l_{11}^2 &= 4 \\[10pt]
+                                l_{11}l_{21} &= 2 \\[10pt]
+                                l_{11}l_{31} &= 4 \\[10pt]
+                                l_{21}^2 + l_{22}^2 &= 2 \\[10pt]
+                                l_{21}l_{31} + l_{22}l_{33} &= 2 \\[10pt]
+                                l_{31}^2 + l_{32}^2 + l_{33}^2 &= 5
+                                \end{aligned}
+                            \]
+                            <p>Solving the equations, we get</p>
+                            \[
+                                \begin{aligned}
+                                l_{11} &= 2 \\[10pt]
+                                l_{21} &= 1 \\[10pt]
+                                l_{22} &= 1 \\[10pt]
+                                l_{31} &= 2 \\[10pt]
+                                l_{32} &= 0 \\[10pt]
+                                l_{33} &= 1
+                                \end{aligned}
+                            \]
+                            <p>We obtain \(L\) and \(L^T\)</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                2 & 0 & 0\\
+                                1 & 1 & 0\\
+                                2 & 0 & 1
+                                \end{bmatrix} 
+                            \]
+                            <p>Since \(L^{-1}\) is also a lower triangular matrix, we solve for it:</p>
+                            \[
+                                LL^{-1} = I
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                2 & 0 & 0\\
+                                1 & 1 & 0\\
+                                2 & 0 & 1
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                l_{11}^{*} & 0 & 0\\
+                                l_{21}^{*} & l_{22}^{*} & 0\\
+                                l_{31}^{*} & l_{32}^{*} & l_{33}^{*}
+                                \end{bmatrix} 
+                                =
+                                \begin{bmatrix}
+                                1 & 0 & 0\\
+                                0 & 1 & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            <p>Solving,</p>
+                            \[
+                                \begin{bmatrix}
+                                2l_{11}^{*} & 0 & 0\\
+                                l_{11}^{*}+l_{21}^{*} & l_{22}^{*} & 0\\
+                                2l_{11}^{*}+l_{31}^{*} & l_{32}^{*} & l_{33}^{*}
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                1 & 0 & 0\\
+                                0 & 1 & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \begin{aligned}
+                                2l_{11}^{*} &= 1 \\[10pt]
+                                l_{11}^{*}+l_{21}^{*} &= 0 \\[10pt]
+                                l_{22}^{*} &= 1 \\[10pt]
+                                2l_{11}^{*}+l_{31}^{*} &= 0 \\[10pt]
+                                l_{32}^{*} &= 0 \\[10pt]
+                                l_{33} &= 1
+                                \end{aligned}
+                            \]
+                            <p>we get,</p>
+                            \[
+                                \begin{aligned}
+                                l_{11}^{*} &= \frac{1}{2} \\[10pt]
+                                l_{21}^{*} &= -\frac{1}{2} \\[10pt]
+                                l_{22}^{*} &= 1 \\[10pt]
+                                l_{31}^{*} &= -1 \\[10pt]
+                                l_{32}^{*} &= 0 \\[10pt]
+                                l_{33}^{*} &= 1
+                                \end{aligned}
+                            \]
+                            <p>Now, \(L^{-1}\) can be written as</p>
+                            \[
+                                L^{-1} = 
+                                \begin{bmatrix}
+                                \frac{1}{2} & 0 & 0\\
+                                -\frac{1}{2} & 1 & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            <p>For \(A^{-1}\),</p>
+                            \[
+                                A^{-1} = (LL^T)^{-1} = (L^T)^{-1}(L)^{-1} = (L^{-1})^TL^{-1}
+                            \]
+                            \[
+                                (L^{-1})^T  = 
+                                \begin{bmatrix}
+                                \frac{1}{2} & -\frac{1}{2} & -1\\
+                                0 & 1 & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                (L^{-1})^TL^{-1} = 
+                                \begin{bmatrix}
+                                \frac{1}{2} & 0 & 0\\
+                                -\frac{1}{2} & 1 & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix} 
+                                \begin{bmatrix}
+                                \frac{1}{2} & -\frac{1}{2} & -1\\
+                                0 & 1 & 0\\
+                                0 & 0 & 1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                (L^{-1})^TL^{-1} = 
+                                \begin{bmatrix}
+                                \frac{3}{2} & -\frac{1}{2} & -1\\
+                                -\frac{1}{2} & 1 & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                A^{-1} = (L^{-1})^TL^{-1}
+                            \]
+                            <p>Thus, the inverse of \(A\) is:</p>
+                            \[
+                                A^{-1} = 
+                                \begin{bmatrix}
+                                \frac{3}{2} & -\frac{1}{2} & -1\\
+                                -\frac{1}{2} & 1 & 0\\
+                                -1 & 0 & 1\\
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 5</span>
+                    <span class="example-sub">solving system of equations</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Solve the following system of equations by Cholesky's method</p>
+                            \[
+                                4x+2y+6z=16 \\[10pt]
+                                2x+82y+39z=206\\[10pt]
+                                6x+39y+26z=113\\[10pt]
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>The given system of equations can be written in the matrix Form \(AX = B\)</p>
+                            \[
+                                \begin{bmatrix}
+                                4 & 2 & 6\\
+                                2 & 82 & 39\\
+                                6 & 39 & 26
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                z \\
+                                y \\
+                                z
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                16 \\
+                                206 \\
+                                113
+                                \end{bmatrix}
+                            \]
+                            <p>Here,</p>
+                            \[
+                                A = 
+                                \begin{bmatrix}
+                                4 & 2 & 6\\
+                                2 & 82 & 39\\
+                                6 & 39 & 26
+                                \end{bmatrix}
+                                \\[10pt]
+                                X = 
+                                \begin{bmatrix}
+                                z \\
+                                y \\
+                                z
+                                \end{bmatrix}
+                                \\[10pt]
+                                B = 
+                                \begin{bmatrix}
+                                16 \\
+                                206 \\
+                                113
+                                \end{bmatrix}
+                            \]
+                            <p>Verify \(A\) is Symmetric Positive Definite</p>
+                            <p>For symmetric</p>
+                            \[
+                                A = A^T
+                            \]
+                            \[
+                                A^T = 
+                                \begin{bmatrix}
+                                4 & 2 & 6\\
+                                2 & 82 & 39\\
+                                6 & 39 & 26
+                                \end{bmatrix}
+                            \]
+                            <p>\(A\) is symmetric</p>
+                            <p>For a symmetric matrix A to have a Cholesky factorization, it must be positive definite, which means all its principal minors must be positive.</p>
+                            <p>The leading principal minors are</p>
+                            \[
+                                D_1 =
+                                \begin{vmatrix}
+                                4
+                                \end{vmatrix} 
+                                = 4 > 0
+                            \]
+                            \[
+                                D_2 = 
+                                \begin{vmatrix}
+                                4 & 2\\
+                                2 & 82\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_2 =
+                                |328 - 4|
+                                =
+                                324 > 0
+                            \]
+                            \[
+                                D_3 = 
+                                \begin{vmatrix}
+                                4 & 2 & 6\\
+                                2 & 82 & 39\\
+                                6 & 39 & 26
+                                \end{vmatrix}
+                            \]
+                            \[
+                                \small
+                                D_3 =
+                                (4) 
+                                \begin{vmatrix}
+                                82 & 39\\
+                                39 & 26\\
+                                \end{vmatrix} 
+                                - (2)
+                                \begin{vmatrix}
+                                2 & 39\\
+                                6 & 26\\
+                                \end{vmatrix}
+                                + (6)
+                                \begin{vmatrix}
+                                2 & 82\\
+                                6 & 39\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_3 = 4(2132 - 1521) - 2(52 - 234) + 6 (78 - 492)\\[10pt]
+                                D_3 = 4(611) - 2(-182) + 6(-414)\\[10pt] 
+                                D_3 = 2444 + 364 - 2484\\[10pt]
+                                D_3 = 324 > 0
+                            \]
+                            <p>Since all principal minors are positive, \(A\) is positive definite, and we can proceed with the Cholesky factorization.</p>
+                            <p><strong>Step 2: Assume lower triangular matrix \(L\)</strong></p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                l_{11} & 0 & 0\\
+                                l_{21} & l_{22} & 0\\
+                                l_{31} & l_{32} & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                l_{11} &  l_{21} &  l_{31}\\
+                                0 & l_{22} & l_{32}\\
+                                0 & 0 & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \small
+                                LL^T = 
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                A = LL^T
+                            \]
+                            \[  
+                                \tiny
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                                =
+                                \begin{bmatrix}
+                                4 & 2 & 6\\
+                                2 & 82 & 39\\
+                                6 & 39 & 26
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \begin{aligned}
+                                l_{11}^2 &= 4 \\[10pt]
+                                l_{11}l_{21} &= 2 \\[10pt]
+                                l_{11}l_{31} &= 6 \\[10pt]
+                                l_{21}^2 + l_{22}^2 &= 82 \\[10pt]
+                                l_{21}l_{31} + l_{22}l_{32} &= 39 \\[10pt]
+                                l_{31}^2 + l_{32}^2 + l_{33}^2 &= 26
+                                \end{aligned}
+                            \]
+                            <p>Solving the equations, we get</p>
+                            \[
+                                \begin{aligned}
+                                l_{11} &= 2 \\[10pt]
+                                l_{21} &= 1 \\[10pt]
+                                l_{22} &= 9 \\[10pt]
+                                l_{31} &= 3 \\[10pt]
+                                l_{32} &= 4 \\[10pt]
+                                l_{33} &= 1
+                                \end{aligned}
+                            \]
+                            <p>We obtain \(L\) and \(L^T\)</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                2 & 0 & 0\\
+                                1 & 9 & 0\\
+                                3 & 4 & 1
+                                \end{bmatrix} 
+                            \]
+                            <p>Solve \(LY = B\) (Forward Substitution)</p>
+                            <p>Since,</p>
+                            \[
+                                AX = B \\[10pt]
+                                LL^TX = B
+                            \]
+                            <p>Let \(L^TX = Y\), we solve</p>
+                            \[
+                                LY = B
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                2 & 0 & 0\\
+                                1 & 9 & 0\\
+                                3 & 4 & 1
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                y_1 \\
+                                y_2 \\
+                                y_3
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                16 \\
+                                206 \\
+                                113
+                                \end{bmatrix}
+                            \]
+                            \[
+                                2y_1 = 16 \\[10pt]
+                                y_1 + 2y_2 = 206 \\[10pt] 
+                                2y_1 + 4y_2 + y_3 = 113 
+                            \]
+                            <p>After solving, we get</p>
+                            \[
+                                Y = 
+                                \begin{bmatrix}
+                                8 \\
+                                22 \\
+                                1
+                                \end{bmatrix}
+                            \]
+                            <p>Solve \(L^TX = Y\) (Back Substitution)</p>
+                            \[
+                                L^TX = Y
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                2 & 1 & 3\\
+                                0 & 9 & 4\\
+                                0 & 0 & 1
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                x \\
+                                y \\
+                                z
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                8 \\
+                                22 \\
+                                1
+                                \end{bmatrix}
+                            \]
+                            \[
+                                2x + y + 3z = 8 \\[10pt]
+                                9y + 4z = 22 \\[10pt] 
+                                z = 1 
+                            \]
+                            <p>Thus,</p>
+                            \[
+                                x = \frac{3}{2} \\[10pt] 
+                                y = 2 \\[10pt] 
+                                z = 1
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
