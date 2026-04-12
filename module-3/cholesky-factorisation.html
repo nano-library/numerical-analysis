@@ -1315,6 +1315,236 @@
                 </div>
             </div>
 
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 6</span>
+                    <span class="example-sub">solving the system</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Show that the following matrix \(A\) has Cholesky decomposition, then solve the system \(Ax = b\) where</p>
+                            \[
+                                A = 
+                                \begin{bmatrix}
+                                    12 & 4 & -1\\
+                                    4 & 7 & 1\\
+                                    -1 & 1 & 6
+                                \end{bmatrix}, \quad
+                                b =
+                                \begin{bmatrix}
+                                    15\\
+                                    12\\
+                                    6
+                                \end{bmatrix}
+                            \]  
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>For a symmetric matrix A to have a Cholesky factorization, it must be positive definite, which means all its principal minors must be positive.</p>
+                            <p><strong>Step 1: Check principal minors</strong></p>
+                            <p>The leading principal minors are</p>
+                            \[
+                                D_1 =
+                                \begin{vmatrix}
+                                12
+                                \end{vmatrix} 
+                                = 2 > 0
+                            \]
+                            \[
+                                D_2 = 
+                                \begin{vmatrix}
+                                12 & 4\\
+                                4 & 7\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_2 =
+                                |84 - 16|
+                                =
+                                68 > 0
+                            \]
+                            \[
+                                D_3 = 
+                                \begin{vmatrix}
+                                    12 & 4 & -1\\
+                                    4 & 7 & 1\\
+                                    -1 & 1 & 6
+                                \end{vmatrix}
+                            \]
+                            \[
+                                \small
+                                D_3 =
+                                (12) 
+                                \begin{vmatrix}
+                                7 & 1\\
+                                1 & 6\\
+                                \end{vmatrix} 
+                                - (4)
+                                \begin{vmatrix}
+                                4 & 1\\
+                                -1 & 6\\
+                                \end{vmatrix}
+                                + (-1)
+                                \begin{vmatrix}
+                                4 & 7\\
+                                -1 & 1\\
+                                \end{vmatrix}
+                            \]
+                            \[
+                                D_3 = 12(42 - 1) - 4(24 + 1) - 1(4 + 7)\\[10pt]
+                                D_3 = 12(41) - 4(25) - 1(11)\\[10pt] 
+                                D_3 = 492 - 100 - 11\\[10pt]
+                                D_3 = 381 > 0
+                            \]
+                            <p>Since all principal minors are positive, \(A\) is positive definite, and we can proceed with the Cholesky factorization.</p>
+                            <p><strong>Step 2: Assume lower triangular matrix \(L\)</strong></p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                l_{11} & 0 & 0\\
+                                l_{21} & l_{22} & 0\\
+                                l_{31} & l_{32} & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                L^T = 
+                                \begin{bmatrix}
+                                l_{11} &  l_{21} &  l_{31}\\
+                                0 & l_{22} & l_{32}\\
+                                0 & 0 & l_{33}
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \small
+                                LL^T = 
+                                \begin{bmatrix}
+                                l_{11}^2 &  l_{11}l_{21} &  l_{11}l_{31}\\
+                                l_{11}l_{21} & l_{21}^2+l_{22}^2 & l_{21}l_{31}+l_{22}l_{32}\\
+                                l_{11}l_{31} & l_{21}l_{31}+l_{22}l_{32} & l_{31}^2+l_{32}^2+l_{33}^2
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                A = LL^T
+                            \]
+                            \[
+                                \begin{aligned}
+                                l_{11}^2 &= 12 \\[10pt]
+                                l_{11}l_{21} &= 4 \\[10pt]
+                                l_{11}l_{31} &= -1 \\[10pt]
+                                l_{21}^2 + l_{22}^2 &= 7 \\[10pt]
+                                l_{21}l_{31} + l_{22}l_{32} &= 1 \\[10pt]
+                                l_{31}^2 + l_{32}^2 + l_{33}^2 &= 6
+                                \end{aligned}
+                            \]
+                            <p>Solving the equations, we get</p>
+                            \[
+                                \begin{aligned}
+                                l_{11} &= 3.4641\\[10pt]
+                                l_{21} &= 1.1547 \\[10pt]
+                                l_{22} &= 2.3804 \\[10pt]
+                                l_{31} &= -0.2886 \\[10pt]
+                                l_{32} &= 0.5600 \\[10pt]
+                                l_{33} &= 2.3670
+                                \end{aligned}
+                            \]
+                            <p>We obtain \(L\) and \(L^T\)</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                3.4641 & 0 & 0\\
+                                1.1547 & 2.3804 & 0\\
+                                -0.2886 & 0.5600 & 2.3670
+                                \end{bmatrix} 
+                            \]
+                            <p>Solve \(LY = B\) (Forward Substitution)</p>
+                            <p>Since,</p>
+                            \[
+                                AX = B \\[10pt]
+                                LL^TX = B
+                            \]
+                            <p>Let \(L^TX = Y\), we solve</p>
+                            \[
+                                LY = B
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                3.4641 & 0 & 0\\
+                                1.1547 & 2.3804 & 0\\
+                                -0.2886 & 0.5600 & 2.3670
+                                \end{bmatrix} 
+                                \begin{bmatrix}
+                                y_1 \\
+                                y_2 \\
+                                y_3
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                15 \\
+                                12 \\
+                                6
+                                \end{bmatrix}
+                            \]
+                            \[
+                                3.4641y_1 = 15 \\[10pt]
+                                1.1547y_1 + 2.3804y_2 = 12 \\[10pt] 
+                                -0.2886y_1 + 0.5600y_2 + 2.3670y_3 = 6
+                            \]
+                            <p>After solving, we get</p>
+                            \[
+                                Y = 
+                                \begin{bmatrix}
+                                4.3301 \\
+                                2.9406 \\
+                                2.3670
+                                \end{bmatrix}
+                            \]
+                            <p>Solve \(L^TX = Y\) (Back Substitution)</p>
+                            \[
+                                L^TX = Y
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    3.4641 & 1.1547 & -0.2886\\
+                                    0 & 2.3804 & 0.5600\\
+                                    0 & 0 & 2.3670
+                                \end{bmatrix} 
+                                \begin{bmatrix}
+                                x \\
+                                y \\
+                                z
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                4.3301 \\
+                                2.9406 \\
+                                2.3670
+                                \end{bmatrix}
+                            \]
+                            \[
+                                3.4641x + 1.1547y + -0.2886z = 4.3301 \\[10pt]
+                                2.3804y + 0.5600z = 2.9406 \\[10pt] 
+                                2.3670z = 2.3670
+                            \]
+                            <p>Thus,</p>
+                            \[
+                                X = 
+                                \begin{bmatrix}
+                                1 \\
+                                1 \\
+                                1
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
         </div>
