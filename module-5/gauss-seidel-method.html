@@ -67,8 +67,241 @@
 		<div class="content-body">
 
             <div class="intro-card">
-				✨ 
+				✨ A simple modification of the Gauss-Jacobi method leads to the Gauss-Seidel method, which is given by, for \(i = 1, 2, \ldots, n\),
 			</div>
+            
+            <div class="formula-card">
+                <div class="formula-label">✦ Gauss-Seidel Method</div>
+                <div class="formula-number"></div>
+                <div class="formula">
+                    <span class="var">\(x_i^{(k+1)}\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(1\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(a_{i,i}\)</span>
+                        </span>
+                    </span>
+                    <span class="op">\(\Big(\)</span>
+                    <span class="var">\(b_i\)</span>
+                    <span class="op">\(-\)</span>
+                    <span class="op">\(\displaystyle\sum_{j=1}^{i-1}\)</span>
+                    <span class="var">\(a_{i,j}x_j^{(k+1)}\)</span>
+                    <span class="op">\(-\)</span>
+                    <span class="op">\(\displaystyle\sum_{j=i+1}^{n}\)</span>
+                    <span class="var">\(a_{i,j}x_j^{(k)}\)</span>
+                    <span class="op">\(\Big)\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                When calculating \(x^{(k+1)}_i\), we already have updated values for \(x^{(k+1)}_j\), \(j=1, 2,\ldots, i-1\). 
+                This method makes use of all the updatedsolutions and hence often converge faster than the Gauss-Jacobi method.
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">solving system of linear equations</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Solve the following system of linear equations using the Gauss-Seidel method. (Perform two iterations)</p>
+                            \[
+                                -4x_1 + x_2 + x_3= 0\\[10pt]
+                                x_1 - 4x_2 + x_3 = -5\\[10pt]
+                                x_1 + x_2 - 4x_3 = -5
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>The iteration formula are written as:</p>
+                            \[
+                                x_1^{(k+1)} = \frac{1}{4}(x_2^{(k)} + x_3^{(k)})
+                            \]
+                            \[
+                                x_2^{(k+1)} = \frac{1}{4}(5 + x_1^{(k)} + x_3^{(k)})
+                            \]
+                            \[
+                                x_3^{(k+1)} = \frac{1}{4}(5 + x_1^{(k)} + x_2^{(k)})
+                            \]
+                            <p>
+                                We should start with a initial guess. <br>
+                                Let us set \(x^{(0)} = (0, 0, 0)^T\). <br>
+                                <strong>Iteration 1</strong> We have the following updated solution
+                            </p>
+                            \[
+                                x_1^{(1)} = \frac{1}{4}(x_2^{(0)} + x_3^{(0)})
+                            \]
+                            \[
+                                x_1^{(1)} = \frac{1}{4}(0 + 0)
+                            \]
+                            \[
+                                x_1^{(1)} = \frac{0}{4} = 0
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{1}{4}(5 + x_1^{(1)} + x_3^{(0)})
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{1}{4}(5 + 0 + 0)
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{5}{4} = 1.25
+                            \]
+                            \[
+                                x_3^{(1)} = \frac{1}{4}(5 + x_1^{(1)} + x_2^{(1)})
+                            \]
+                            \[
+                                x_3^{(1)} = \frac{1}{4}(5 + 0 + 1.25)
+                            \]                            
+                            \[
+                                x_3^{(1)} = \frac{6.25}{4} = 1.5625
+                            \]
+                            <p><strong>Iteration 2</strong> We use \(x^{(1)} = (0, 1.25, 1.5625)^T\) to get \(x^{(2)}\)</p>
+                            \[
+                                x_1^{(2)} = \frac{1}{4}(x_2^{(1)} + x_3^{(1)})
+                            \]
+                            \[
+                                x_1^{(2)} = \frac{1}{4}(1.25 + 1.5625)
+                            \]
+                            \[
+                                x_1^{(2)} = \frac{2.8125}{4} = 0.7031
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{1}{4}(5 + x_1^{(2)} + x_3^{(1)})
+                            \]
+                            \[
+                                x_2^{(2)} = \frac{1}{4}(5 + 0.7031 + 1.5625)
+                            \]
+                            \[
+                                x_2^{(2)} = \frac{7.2556}{4} = 1.8164
+                            \]
+                            \[
+                                x_3^{(1)} = \frac{1}{4}(5 + x_1^{(2)} + x_2^{(2)})
+                            \]
+                            \[
+                                x_3^{(2)} = \frac{1}{4}(5 + 0.7031 + 1.8164)
+                            \]
+                            \[
+                                x_3^{(2)} = \frac{7.5195}{4} = 1.0742
+                            \]
+                            <p>Therefore,</p>
+                            \[
+                                x^{(2)} = (0.7031, 1.8164, 1.0742)^T
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">solving system of linear equations</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Solve the following system of linear equations using the Gauss-Seidel method. (Perform two iterations)</p>
+                            \[
+                                5x_1 - 2x_2 + 3x_3= 7\\[10pt]
+                                -3x_1 + 9x_2 + x_3 = -8\\[10pt]
+                                2x_1 - x_2 - 7x_3 = 6
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>The iteration formula are written as:</p>
+                            \[
+                                x_1^{(k+1)} = \frac{1}{5}(7 + 2x_2^{(k)} - 3x_3^{(k)})
+                            \]
+                            \[
+                                x_2^{(k+1)} = \frac{1}{9}(-8 + 3x_1^{(k)} - x_3^{(k)})
+                            \]
+                            \[
+                                x_3^{(k+1)} = \frac{1}{7}(-6 + 2x_1^{(k)} - x_2^{(k)})
+                            \]
+                            <p>
+                                We should start with a initial guess. <br>
+                                Let us set \(x^{(0)} = (0, 0, 0)^T\). <br>
+                                <strong>Iteration 1</strong> We have the following updated solution
+                            </p>
+                            \[
+                                x_1^{(1)} = \frac{1}{5}(7 + 2x_2^{(0)} - 3x_3^{(0)})
+                            \]
+                            \[
+                                x_1^{(1)} = \frac{1}{5}(7 + 2(0) - 3(0))
+                            \]
+                            \[
+                                x_1^{(1)} = \frac{7}{5} = 1.4
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{1}{9}(-8 + 3x_1^{(1)} - x_3^{(0)})
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{1}{9}(-8 + 3(1.4) - 0)
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{-3.8}{9} = -0.4222
+                            \]
+                            \[
+                                x_3^{(1)} = \frac{1}{7}(-6 + 2x_1^{(1)} - x_2^{(1)})
+                            \]
+                            \[
+                                x_3^{(1)} = \frac{1}{7}(-6 + 2(1.4) - (-0.4222))
+                            \]                            
+                            \[
+                                x_3^{(1)} = \frac{-2.7778}{7} = -0.3968
+                            \]
+                            <p><strong>Iteration 2</strong> We use \(x^{(1)} = (1.4, -0.4222, -0.3968)^T\) to get \(x^{(2)}\)</p>
+                            \[
+                                x_1^{(2)} = \frac{1}{5}(7 + 2x_2^{(1)} - 3x_3^{(1)})
+                            \]
+                            \[
+                                x_1^{(2)} = \frac{1}{5}(7 + 2(1.4) -3 (-0.3968))
+                            \]
+                            \[
+                                x_1^{(2)} = \frac{7.3460}{6} = 1.4692
+                            \]
+                            \[
+                                x_2^{(1)} = \frac{1}{9}(-8 + 3(x_1^{(2)}) - x_3^{(1)})
+                            \]
+                            \[
+                                x_2^{(2)} = \frac{1}{9}(-8 + 3(1.4692) - (-0.3968))
+                            \]
+                            \[
+                                x_2^{(2)} = \frac{-3.1956}{9} = -0.3550
+                            \]
+                            \[
+                                x_3^{(1)} = \frac{1}{7}(-6 + 2x_1^{(2)} - x_2^{(2)})
+                            \]
+                            \[
+                                x_3^{(2)} = \frac{1}{7}(-6 + 2(1.4692) - (-0.3550))
+                            \]
+                            \[
+                                x_3^{(2)} = \frac{-2.7066}{7} = -0.3866
+                            \]
+                            <p>Therefore,</p>
+                            \[
+                                x^{(2)} = (1.4692, -0.3550, -0.3866)^T
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
 			    
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
