@@ -68,8 +68,331 @@
 
 
 		<div class="content-body">
+
             <div class="intro-card">
-                ✨
+				✨ The objective is to determine the best fit function of the form \(f (x; a)\) for a given set of data points \((x_i, y_i), i = 0, 1, \ldots , m,\) where \(a = (a_0, a_1, \ldots , a_n)\) is a vector of parameters. 
+                The discrete least squares problem is to find the value of a that minimizes the least square error,
+			</div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="op">\(E\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(a_0, a_1, \ldots, a_n\)</span>
+                    <span class="op">\()\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(E\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">a</span>
+                    <span class="op">\()\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="op">\(E\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">a</span>
+                    <span class="op">\()\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(y_i\)</span>
+                    <span class="op"> - </span>
+                    <span class="var">\(f(x_i ; a)\)</span>
+                    <span class="op">\()^{\color{#6AAEE0}{2}}\)</span>
+                </div>
+            </div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Linear Fit</h2>
+			</div>
+
+            <div class="intro-card">
+                The simplest example of the best fit function is the linear curve \(f (x; a_0, a_1) = a_0 + a_1 x. \)
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Least Square Error</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="op">\(E\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(a_0, a_1\)</span>
+                    <span class="op">\()\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(y_i\)</span>
+                    <span class="op"> - </span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(a_0 + a_1 x_i\)</span>
+                    <span class="op">\()\)</span>
+                    <span class="op">\()^{\color{#6AAEE0}{2}}\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                For minimum \(E\),
+            </div>
+            
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="op">\(\displaystyle\frac{\partial E}{\partial a_0}\)</span>
+                    <span class="op"> = </span>
+                    <span class="op"> - </span>
+                    <span class="var"> 2 </span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(y_i\)</span>
+                    <span class="op"> - </span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(a_0 + a_1 x_i\)</span>
+                    <span class="op">\()\)</span>
+                    <span class="op">\()^{\color{#6AAEE0}{2}}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var"> 0 </span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="op">\(\displaystyle\frac{\partial E}{\partial a_1}\)</span>
+                    <span class="op"> = </span>
+                    <span class="op"> - </span>
+                    <span class="var"> 2 </span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(y_i\)</span>
+                    <span class="op"> - </span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(a_0 + a_1 x_i\)</span>
+                    <span class="op">\()\)</span>
+                    <span class="op">\()\)</span>
+                    <span class="var">\(x_i\)</span>
+                    <span class="op"> = </span>
+                    <span class="var"> 0 </span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Simplifying, we get the following linear system
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(m a_0\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(a_1\)</span>
+                    <span class="var"> 2 </span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="var">\(x_i\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="var">\(y_i\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(a_0\)</span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="var">\(x_i\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(a_1\)</span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="var">\(x_i\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\sum_{\color{#6AAEE0}{i}=0}^{\color{#6AAEE0}{m}}\)</span>
+                    <span class="var">\(x_i\)</span>
+                    <span class="var">\(y_i\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Finally, \(a_0\) and \(a_1\) can be found by solving the above system.
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">Finding parameters</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>How can non-linear regression be employed to ascertain the parameters \(a\) and \(b\) in the equation \(y = ax^b\), given the data presented by an investigator as depicted in the table below?</p>
+                            \[
+                                \begin{array}{c|c|c|c|c|c}
+                                    x & 1 & 2 & 5 & 7 & 10 \\
+                                    \hline
+                                    f(x) & 0.5 & 2 & 3 & 4 & 5
+                                \end{array}
+                            \]
+                        </div>
+                    </div>
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p><strong>Step 1: Linearization.</strong> The given model is \(y = ax^b\). Taking natural logarithms:</p>
+
+                            \[
+                                \ln y = \ln a + b \ln x
+                            \]
+
+                            <p>Let \(Y = \ln y\), \(X = \ln x\), and \(A = \ln a\). Then we have the linear form:</p>
+
+                            \[
+                                Y = A + bX
+                            \]
+
+                            <p><strong>Step 2: Normal equations.</strong></p>
+
+                            \[
+                                \begin{aligned}
+                                \sum Y &= nA + b\sum X\\
+                                \sum XY &= A\sum X + b\sum X^2
+                                \end{aligned}
+                            \]
+
+                            <p><strong>Step 3: Compute the necessary sums.</strong> We construct the following table:</p>
+                            \[
+                                \begin{array}{c|c|c|c|c}
+                                x & y & X = \ln x & Y = \ln y & X^2 & XY \\
+                                \hline
+                                1 & 0.5 & 0 & -0.6931 & 0 & 0 \\
+                                2 & 2 & 0.6931 & 0.6931 & 0.4805 & 0.4805 \\
+                                5 & 3 & 1.6094 & 1.0986 & 2.5903 & 1.7681 \\
+                                7 & 4 & 1.9459 & 1.3863 & 3.7866 & 2.6976 \\
+                                10 & 5 & 2.3026 & 1.6094 & 5.3019 & 3.7059 \\
+                                \hline
+                                \sum & & 6.5511 & 4.0943 & 12.1592 & 8.6521
+                                \end{array}
+                            \]
+
+                            <p>
+                                Here, \(n = 5\). <br>
+                                <strong>Step 4: Substitute into normal equations.</strong>
+                            </p>
+                            \[
+                                \begin{aligned}
+                                    4.0943 &= 5A + 6.5511\,b  \\
+                                    8.6521 &= 6.5511\,A + 12.1592\,b
+                                \end{aligned}
+                            \]
+
+                            <p>Solving:</p>
+
+                            \[
+                                A = -0.3858, \qquad b = 0.9194
+                            \]
+
+                            <p><strong>Step 5: Back-transform.</strong> Since \(A = \ln a\), we have:</p>
+
+                            \[
+                                a = e^{A} = e^{-0.3858} = 0.6799
+                            \]
+
+                            <p><strong>Step 6: Final model.</strong></p>
+
+                            \[
+                                y = 0.6799 \, x^{0.9194}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">Linear Regression</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            The following eight data points show the relationship between the number of fishermen and the amount of fish (in thousand pounds) they can catch a day.
+                            \[
+                                \begin{array}{c|c|c|c|c|c|c|c|c}
+                                    \text{Number of Fishermen} & 4 & 5 & 9 & 10 & 12 & 14 & 18 & 22 \\
+                                    \hline
+                                    \text{Fish Caught} & 7 & 8 & 9 & 12 & 15 & 20 & 26 & 35 \\
+                                \end{array}
+                            \]
+                            Using the least-squares method, compute a linear polynomial that fits the above data.
+                        </div>
+                    </div>
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p><strong>Step 1: Model formulation.</strong> We want to fit a linear polynomial of the form:</p>
+                            \[
+                                y = a + bx
+                            \]
+                            <p>
+                                where \(x\) represents number of fishermen and \(y\) represents the fish caught (in thousand pounds). <br>
+                                The parameters \(a\) and \(b\) are to be determined using the least-squares method. <br>
+                                <strong>Step 2: Normal equations.</strong> For \(n\) data points \((x_i, y_i)\), the least-squares normal equations are:
+                            </p>
+                            \[
+                            \begin{aligned}
+                                \sum y_i &= n a + b \sum x_i \\
+                                \sum x_i y_i &= a \sum x_i + b \sum x_i^2 
+                            \end{aligned}
+                            \]
+
+                            <p><strong>Step 3: Compute the necessary sums.</strong> We construct the following table:</p>
+                            \[
+                                \begin{array}{c|c|c|c|c}
+                                    x & y & x^2 & xy \\
+                                    \hline
+                                    4 & 7 & 16 & 28 \\
+                                    5 & 8 & 25 & 40 \\
+                                    9 & 9 & 81 & 81 \\
+                                    10 & 12 & 100 & 120 \\
+                                    12 & 15 & 144 & 180 \\
+                                    14 & 20 & 196 & 280 \\
+                                    18 & 26 & 324 & 468 \\
+                                    22 & 35 & 484 & 770 \\
+                                    \hline
+                                    \sum x = 94 & \sum y = 132 & \sum x^2 = 1370 & \sum xy = 1967
+                                \end{array}
+                            \]
+                            <p>
+                                Here, \(n = 8\). <br>
+                                <strong>Step 4: Substitute into normal equations.</strong>
+                            </p>
+                            \[
+                            \begin{aligned}
+                                132 &= 8a + 94b  \quad &(1) \\
+                                1967 &= 94a + 1370b \quad &(2)
+                            \end{aligned}
+                            \]
+
+                            <p>Solving:</p>
+
+                            \[
+                                A = -1.9105, \qquad b = 1.5668
+                            \]
+            
+                            <p><strong>Step 5: Final fitted linear model.</strong> The least-squares regression line is:</p>
+                            \[
+                                y = -1.9105 + 1.5668x
+                            \]
+                        </div>
+                    </div>
+                </div>
             </div>
 
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
