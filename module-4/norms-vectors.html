@@ -69,8 +69,258 @@
 		<div class="content-body">
             
 			<div class="intro-card">
-				✨ 
+				✨ Vector norm provides a way to quantify the size or length of a vector,  and can be used to measure the distance between vectors.
 			</div>
+
+            <div class="intro-card">
+                Let \(\mathbb{R}^n\) denote the set of all n-dimensional column vectors with real-number components.
+                To define a distance in \(\mathbb{R}^n\) we use the notion of a norm, which is the generalization of the absolute value on \(\mathbb{R}\), the set of real numbers.
+            </div>
+
+            <div class="callout def">
+				<span class="callout-icon">🌸</span>
+				<div>
+				<div class="callout-title">Vector Norm</div>
+                    <p>A vector norm on \(\mathbb{R}^n\) is a function, \(\| \cdot \|\), from \(\mathbb{R}^n\) into \(\mathbb{R}\) with the following properties:</p>
+                </div>
+			</div>  
+
+            <ul>
+                <li class="no-num">Positivity: <br> \(\|x\| \geq 0\) for all \(x \in \mathbb{R}^n\)</li>
+                <li class="no-num">\(\|x\| = 0\) if and only if \(x = 0\)</li>
+                <li class="no-num">Homogeneity: <br> \(\|\alpha x\| = |\alpha| \; \|x\|\) for \(\alpha \in \mathbb{R}\) and \(x \in \mathbb{R}^n\)</li>
+                <li class="no-num">Triangle inequality: <br> \(\|x + y\| \leq \|x\| + \|y\|\) for \(x, y \in \mathbb{R}^n\)</li>
+            </ul>
+
+            <div class="intro-card">
+                Vectors in \(\mathbb{R}^n\) are column vectors, and it is convenient to use the transpose notation when a vector is represented in terms of its components. 
+                For example, the vector
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(x\)</span>
+                    <span class="op"> = </span>
+                    <span class="matrix">
+                        <span class="matrix-bracket open"></span>
+                        <span class="matrix-body">
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">x</span><sub>1</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">x</span><sub>2</sub></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">\(\vdots\)</span></span>
+                            </span>
+                            <span class="matrix-row">
+                                <span class="matrix-cell"><span class="var">x</span><sub>n</sub></span>
+                            </span>
+                        </span>
+                        <span class="matrix-bracket close"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                will be written \(x = \left [x_1 \; x_2 \; \ldots \; x_n \right]^T\)
+            </div>
+
+            <div class="callout note">
+				<span class="callout-icon">💠</span>
+				<div>
+				<div class="callout-title">Note</div>
+					Each of these norms reduces to the absolute value in the case \(n = 1\).
+				</div>
+			</div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>\(l^1\) norm</h2>
+			</div>
+                   
+            <div class="intro-card">
+                Given a vector \(x = \left [x_1 \; x_2 \; \ldots \; x_n \right]^T\) of size \(n\), the \(l^1\) norm of \(x\) is defined as:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|x\|_1\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\sum_{i=1}^n\)</span>
+                    <span class="var">\(|x_i|\)</span>
+                </div>
+            </div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Euclidean (or \(l^2\)) norm</h2>
+			</div>
+
+            <div class="intro-card">
+                The \(l^2\) norm is called the <mark>Euclidean norm</mark> of the vector \(x\) because it represents the usual notion of distance from the origin in case \(x\) is in \(\mathbb{R}^1 \equiv \mathbb{R}, \mathbb{R}^2, \text{or } \mathbb{R}^3\). 
+                For example, the \(l^2\) norm of the vector \(x = \left [x_1 ,\; x_2 ,\; x_3 \right]^T\) gives the length of the straight line joining the points \((0, 0, 0)\) and \((x_1, x_2, x_3)\). 
+            </div>
+
+            <div class="intro-card">
+                Given a vector \(x = \left [x_1 \; x_2 \; \ldots \; x_n \right]^T\) of size \(n\), the Euclidean norm of \(x\) is defined as:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|x\|_2\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\sqrt{\displaystyle\sum_{i=1}^n \color{#6AAEE0}{x_i^2}}\)</span>
+                </div>
+            </div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Maximum (or \(l^{\infty}\)) norm</h2>
+			</div>
+
+            <div class="intro-card">
+                Given a vector \(x = \left [x_1 \; x_2 \; \ldots \; x_n \right]^T\) of size \(n\), the Maximum norm of \(x\) is defined as:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|x\|_{\infty}\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\max_{1 \leq i \leq n} \color{#6AAEE0}{|x_i|}\)</span>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">finding norm of the vector</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            Find \(\|·\|_1\), \(\|·\|_2\) and \(\|·\|_{\infty}\) norm of the vector \(x = \left [1 ,\; 1 ,\; 2 ,\; 0 ,\; 3 \right]^T\).
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>We will compute the vector norms of</p>
+                            \[
+                                x = \left[1,\;1,\;2,\;0,\;3\right]^T
+                            \]
+
+                            <p>The definitions of norms:</p>
+                            \[
+                                \|x\|_1 = \sum_{i=1}^{n} |x_i|,
+                            \]
+                            \[
+                                \|x\|_2 = \sqrt{\left(\sum_{i=1}^{n} |x_i|^2\right)},
+                            \]
+                            \[
+                                \|x\|_{\infty} = \max_{1 \le i \le n} |x_i|
+                            \]
+
+                            <p>First, we compute the \( \|x\|_1 \) norm</p>
+                            \[
+                                \|x\|_1 = |1| + |1| + |2| + |0| + |3|
+                            \]
+                            \[
+                                \|x\|_1 = 1 + 1 + 2 + 0 + 3 = 7
+                            \]
+
+                            <p>Next, we compute the \( \|x\|_2 \) norm</p>
+                            \[
+                                \|x\|_2 = \sqrt{\left(1^2 + 1^2 + 2^2 + 0^2 + 3^2\right)}
+                            \]
+                            \[
+                                \|x\|_2 = \sqrt{\left(1 + 1 + 4 + 0 + 9\right)}
+                            \]
+                            \[
+                                \|x\|_2 = \sqrt{15}
+                            \]
+
+                            <p>Finally, we compute the \( \|x\|_{\infty} \) norm</p>
+                            \[
+                                \|x\|_{\infty} = \max\{ |1|, |1|, |2|, |0|, |3| \}
+                            \]
+                            \[
+                                \|x\|_{\infty} = 3
+                            \]
+
+                            <p>Hence, the norms of the vector are</p>
+                            \[
+                                \|x\|_1 = 7,\qquad \|x\|_2 = \sqrt{15},\qquad \|x\|_{\infty} = 3
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">finding norm of the vector</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            Determine the \(l^2\) norm and the \(l^{\infty}\) norm of the vector \(x = \left [-1 ,\; 1 ,\; -2 \right]^T\).
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>We will compute the vector norms of</p>
+                            \[
+                                x = \left [-1 ,\; 1 ,\; -2 \right]^T
+                            \]
+
+                            <p>The definitions of norms:</p>
+                            \[
+                                \|x\|_2 = \sqrt{\left(\sum_{i=1}^{n} |x_i|^2\right)},
+                            \]
+                            \[
+                                \|x\|_{\infty} = \max_{1 \le i \le n} |x_i|
+                            \]
+
+                            <p>First, we compute the \( \|x\|_2 \) norm</p>
+                            \[
+                                \|x\|_2 = \sqrt{\left((-1)^2 + 1^2 + (-2)^2\right)}
+                            \]
+                            \[
+                                \|x\|_2 = \sqrt{\left(1 + 1 + 4\right)}
+                            \]
+                            \[
+                                \|x\|_2 = \sqrt{6}
+                            \]
+
+                            <p>Then, we compute the \( \|x\|_{\infty} \) norm</p>
+                            \[
+                                \|x\|_{\infty} = \max\{ |-1|, |1|, |-2|\}
+                            \]
+                            \[
+                                \|x\|_{\infty} = 2
+                            \]
+
+                            <p>Hence, the norms of the vector are</p>
+                            \[
+                                \|x\|_2 = \sqrt{6},\qquad \|x\|_{\infty} = 2
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>

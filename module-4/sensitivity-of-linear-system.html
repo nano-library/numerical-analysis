@@ -69,9 +69,79 @@
 		<div class="content-body">
 
             <div class="intro-card">
-				✨ 
+                For any operator norm \(\|\cdot\|\), we have \(\rho(A) \leq \|A\|\). As a corollary, we also have \(\|\textbf{I}_{n x n}\| > 1\).
+            </div>
+
+            <div class="intro-card">
+                Suppose that the vector \(\textbf{b}\) is perturbed to obtain a vector \(\tilde{\textbf{b}}\).
+                If \(\textbf{x}\) and \(\tilde{\textbf{x}}\) satisfy \(A\textbf{x} = \textbf{b}\) and \(A\tilde{\textbf{x}} = \tilde{\textbf{b}}\), 
+                then we have the following bounds on the relative error in \(\textbf{x}\) in terms of the relative error in \(\textbf{b}\):
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+
+                    <span class="frac">
+                        <span class="frac-num" style="padding: 0px 32px 3px;">
+                            <span class="var">\(1\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\|A\|\|A^{-1}\|\)</span>
+                        </span>
+                    </span>
+
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(\|\tilde{\mathbf{b}} - \mathbf{b}\|\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\|\mathbf{b}\|\)</span>
+                        </span>
+                    </span>
+
+                    <span class="op">\(\leq\)</span>
+
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(\|\tilde{\mathbf{x}} - \mathbf{x}\|\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\|\mathbf{x}\|\)</span>
+                        </span>
+                    </span>
+
+                    <span class="op">\(\leq\)</span>
+
+                    <span class="var">\(\|A\|\|A^{-1}\|\)</span>
+
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(\|\tilde{\mathbf{b}} - \mathbf{b}\|\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\|\mathbf{b}\|\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                The quantity \(\kappa(A) = \|A\|\|A^{-1}\|\) is known as the condition number.
+            </div>
+            
+            <div class="intro-card">
+                The inequality shows that the sensitivity of the system \(Ax = b\) depends on \(\kappa(A)\). 
+            </div>
+
+            <div class="callout def">
+				<span class="callout-icon">🌸</span>
+				<div>
+				<div class="callout-title">Ill-conditioned</div>
+                    <p>A matrix \(A\) is said to be ill-conditioned if \(\kappa(A)\) is large (in practice, if \(\log_{10}{\kappa(A)} > 1\)).</p>    
+                </div>
 			</div>
-			            
+                   
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
         </div>

@@ -69,8 +69,325 @@
 		<div class="content-body">
             
             <div class="intro-card">
-				✨ 
+                ✨ A matrix norm is a norm defined on the space of matrices. 
+                Just like a vector norm assigns a scalar value to each vector, a matrix norm assigns a scalar value to each matrix.
+            </div>
+
+			<div class="intro-card">
+				Let \(A\) be a matrix, and let \(x\) be a vector, A matrix norm on the set of all \(n \times n\) matrices is a real-valued function, \(\|\cdot\|\), defined on this set, satisfying for all \(n \times n\) matrices A and B and all real numbers \(\alpha\).      
 			</div>
+
+            <ul>
+                <li class="no-num">Positivity:  <br> \(\|A\| \geq 0\), \(\|A\| = 0\) if and only if \(A = 0\).</li>
+                <li class="no-num">Homogeneity:  <br> \(\|c A\| = |c|\|A\|\) for any scalar c and any matrix A.</li>
+                <li class="no-num">Triangle inequality: <br> \(\|A + B\| \leq \|A\| + \|B\|\) for any matrices A and B.</li>
+                <li class="no-num">Submultiplicativity: <br> \(\|AB\| \leq \|A\|\|B\|\) for any matrices A and B</li>
+                <li class="no-num">Compatibility with vector norms: <br> \(\|Ax\| \leq \|A\|\|x\|\) for any matrix A and any vector x.</li>
+            </ul>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Column Norm</h2>
+			</div>
+            
+            <div class="intro-card">
+                Column norm of a matrix \(A\) is defined by
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|A\|_1\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\max_{1 \leq j \leq n}\sum_{i=1}^n \color{#6AAEE0}{|a_{i,j}|}\)</span>
+                </div>
+            </div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Frobenius Norm</h2>
+			</div>
+
+            <div class="intro-card">
+                Given a matrix \(A\), the Frobenius norm is given by
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|A\|_F\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\sqrt{\displaystyle\sum_{i=1}^n \sum_{j=1}^n \color{#6AAEE0}{|a_{i,j}|^2}}\)</span>
+                </div>
+            </div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Row Norm</h2>
+			</div>
+
+            <div class="intro-card">
+                Row norm of A is defined by
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|A\|_{\infty}\)</span>
+                    <span class="op"> = </span>
+                    <span class="op">\(\displaystyle\max_{1 \leq i \leq n}\sum_{j=1}^n \color{#6AAEE0}{|a_{i,j}|}\)</span>
+                </div>
+            </div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Spectral Norm</h2>
+			</div>
+
+            <div class="intro-card">
+                The spectral norm \((\|A\|_2)\) of a matrix \(A\) is defined as the square root of the largest eigenvalue of the symmetric matrix \(A^TA\),
+                where \(\lambda_{max}(A^TA)\) is the largest eigenvalue of \(A^TA\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|A\|_2\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\sqrt{\lambda_{max}(A^TA)}\)</span>
+                </div>
+            </div>
+
+            <div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Operator Norm (Matrix Norms Induced by Vector Norms)</h2>
+			</div>
+
+            <div class="intro-card">
+                Given a vector norm \(\|\cdot\|_v\) the matrix norm induced by the vector norm \(\|\cdot\|_v\) is defined by
+            </div>
+           
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|A\|_v\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\displaystyle\sup_{x \neq 0}\)</span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(\|A\|_v\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\|x\|_v\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Equivalently, one can also define the following:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\|A\|_v\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\displaystyle\sup_{\|x\| = 0} \|Ax\|_v\)</span>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">finding norm of the matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Find \(\|\cdot\|_1\) , \(\|\cdot\|_F\) and \(\|\cdot\|_{\infty}\) norm of the following matrix</p>  
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    3 & 8 & 9 & 7\\
+                                    6 & 2 & 4 & 5\\
+                                    9 & 7 & 6 & 3\\
+                                    8 & 1 & 5 & 2
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>\(\|\cdot\|_1\) norm (maximum absolute column sum)</p>
+                            \[
+                                |A\|_1 = \max_{1 \leq j \leq n} \sum_{i=1}^n |a_{i,j}|
+                            \]
+                            \[
+                                \text{Column 1: } 3+6+9+8=26\\
+                                \text{Column 2: } 8+2+7+1=18\\
+                                \text{Column 3: } 9+4+6+5=24\\
+                                \text{Column 4: } 7+5+3+2=17
+                            \]
+                            \[
+                                \|A\|_1 = 26
+                            \]
+                            <p>\(\|\cdot\|_F\) norm (Frobenius norm)</p>
+                            \[
+                                \|A\|_F = \sqrt{\sum_{i=1}^n \sum_{j=1}^n |a_{i,j}|^2}                
+                            \]
+                            \[
+                                \text{Row 1: } 3^2+8^2+9^2+7^2=9+64+81+49=203\\
+                                \text{Row 2: } 6^2+2^2+4^2+5^2=36+4+16+25=81\\
+                                \text{Row 3: } 9^2+7^2+6^2+3^2=81+49+36+9=175\\
+                                \text{Row 4: } 8^2+1^2+5^2+2^2=64+1+25+4=94
+                            \]
+
+                            <p>Total sum of squares:</p>
+                            \[
+                                203+81+175+94=553 
+                            \]
+                            \[
+                                \|A\|_F = \sqrt{553}
+                            \]
+
+                            <p>\(\|\cdot\|_{\infty}\) norm (maximum absolute row sum)</p>
+                            \[
+                                \|A\|_{\infty} = \max_{1 \leq i \leq n}\sum_{j=1}^n |a_{i,j}|
+                            \]
+                            \[
+                                \text{Row 1: } 3+8+9+7=27\\
+                                \text{Row 2: } 6+2+4+5=17\\
+                                \text{Row 3: } 9+7+6+3=25\\
+                                \text{Row 4: } 8+1+5+2=16
+                            \]
+                            \[
+                                \|A\|_{\infty} = 27
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">finding norm of the matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Determine the \(l_2\) norm of</p> 
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    10 & 15\\
+                                    0  & 1\\
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>The definition of \(l_2\) norm:</p>
+                            \[
+                                \|A\|_2 = \sqrt{\lambda_{\text{max}}(A^TA)}
+                            \]
+
+                            <p>Computing \(A^TA\)</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    10 & 15\\
+                                    0  & 1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                A^T =
+                                \begin{bmatrix}
+                                    10 & 0\\
+                                    15 & 1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                A^TA =
+                                \begin{bmatrix}
+                                    10 & 0\\
+                                    15 & 1\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    10 & 15\\
+                                    0  & 1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                A^TA =
+                                \begin{bmatrix}
+                                    100 & 150\\
+                                    150 & 226\\
+                                \end{bmatrix}
+                            \]
+                            <p>Eigenvalues of \(A^TA\)</p>
+                            \[
+                                |A-\lambda I| = 0
+                            \]
+                            \[
+                                \left|
+                                \begin{bmatrix}
+                                    100 & 150\\
+                                    150 & 226\\
+                                \end{bmatrix}
+                                -
+                                \begin{bmatrix}
+                                    \lambda & 0\\
+                                    0       & \lambda\\
+                                \end{bmatrix}
+                                \right|
+                                =
+                                0
+                            \]
+                            \[
+                                \left|
+                                \begin{bmatrix}
+                                    100-\lambda & 150\\
+                                    150 & 226-\lambda\\
+                                \end{bmatrix}
+                                \right|
+                                =
+                                0
+                            \]
+                            \[
+                                (100 - \lambda)(226-\lambda)-150^2 = 0
+                            \]
+                            \[
+                                (100 - \lambda)(226-\lambda)-22500 = 0
+                            \]
+                            \[
+                                22600 - 100\lambda - 226\lambda + \lambda^2 - 22500 = 0
+                            \]
+                            \[
+                                \lambda^2 - 326\lambda + 100 = 0
+                            \]
+                            \[
+                                \lambda = 325.6929, 0.3070 
+                            \]
+                            <p>Now, for \(l_2\) norm:</p>
+                            \[
+                                \|A\|_2 = \sqrt{325.6929} \\[10pt]
+                                \|A\|_2 = 18.0469
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
                    
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
