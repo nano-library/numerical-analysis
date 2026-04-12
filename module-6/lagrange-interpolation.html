@@ -68,10 +68,309 @@
 
 
 		<div class="content-body">
-           
+    
             <div class="intro-card">
-                ✨
+                ✨ Interpolation is a mathematical and data analysis method used to estimate unknown values that fall between known data points.
+                Lagrange interpolation provides a unique polynomial interpolant in a straightforward form.
+            </div>
+
+            <div class="intro-card">
+                Given \(n + 1\) data points \((x_0, y_0), (x_1, y_1), \ldots, (x_n, y_n)\), we seek a polynomial \(L(x)\) of degree at most \(n\) such that, for \(i = 0, 1, \ldots , n\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(L(x_i)\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(y_i\)</span>
+                </div>
+            </div>      
+
+            <div class="intro-card">
+                Lagrange interpolation provides an explicit formula for this polynomial.
+            </div>
+
+			<div class="section-head">
+				<div class="section-head-number"></div>
+				<h2>Derivation of the lagrange interpolating polynomial</h2>
+			</div>
+            
+            <div class="intro-card">
+                We seek a polynomial \(L(x)\) of degree at most n that satisfies the interpolation conditions, for \(i = 0, 1, \ldots , n\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(L(x_i)\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(y_i\)</span>
+                </div>
+            </div>  
+
+            <div class="intro-card">
+                To construct \(L(x)\), we first define polynomials \(\ell_j(x)\) such that each \(\ell_j(x)\) satisfies:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    \(
+                        {\color{#6AAEE0}{\ell_j(x_i)}} 
+                        {\color{#F08FB0}{=}} 
+                        \begin{cases} 
+                        {\color{#6AAEE0}{1}}, & \text{if } {\color{#6AAEE0}{i}} {\color{#F08FB0}{=}}  {\color{#6AAEE0}{j}} \\ 
+                        {\color{#6AAEE0}{0}}, & \text{if } {\color{#6AAEE0}{i}} {\color{#F08FB0}{\neq}}  {\color{#6AAEE0}{j}}
+                        \end{cases}
+                    \)
+                </div>
+            </div>
+
+            <div class="intro-card">
+                A polynomial of degree \(n\) that vanishes at all points \(x_m\) except at \(x_j\) can be written as:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\ell_j(x)\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(C_j\)</span>
+                    <span class="op">\(\displaystyle\prod_{{m=0\\ m \neq j}}^n\)</span>
+                    <span class="op">\((\)</span>
+                    <span class="var">\(x\)</span>
+                    <span class="op">\(-\)</span>
+                    <span class="var">\(x_m\)</span>
+                    <span class="op">\()\)</span>
+                </div>
+            </div>  
+
+            <div class="intro-card">
+                To ensure \(\ell_j(x_j) = 1\), we set
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">                   
+                    <span class="var">\(C_j\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="frac">
+                        <span class="frac-num" style="padding: 0 100px 3px;">
+                            <span class="var">\(1\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="op">\(\displaystyle\prod_{{m=0\\ m \neq j}}^n\)</span>
+                            <span class="op">\((\)</span>
+                            <span class="var">\(x_j\)</span>
+                            <span class="op">\(-\)</span>
+                            <span class="var">\(x_m\)</span>
+                            <span class="op">\()\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>  
+
+            <div class="intro-card">
+                Thus, the Lagrange basis polynomials take the form:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">                   
+                    <span class="var">\(\ell_j(x)\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="op">\(\displaystyle\prod_{{m=0\\ m \neq j}}^n\)</span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="op">\((\)</span>
+                            <span class="var">\(x\)</span>
+                            <span class="op">\(-\)</span>
+                            <span class="var">\(x_m\)</span>
+                            <span class="op">\()\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="op">\((\)</span>
+                            <span class="var">\(x_j\)</span>
+                            <span class="op">\(-\)</span>
+                            <span class="var">\(x_m\)</span>
+                            <span class="op">\()\)</span>
+                        </span>
+                    </span>
+                </div>
             </div> 
+
+            <div class="intro-card">
+                Since \(L(x)\) must interpolate the given data, we express it as a linear combination:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">                   
+                    <span class="var">\(L(x)\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="op">\(\displaystyle\sum_{j=0}^n\)</span>
+                    <span class="var">\(a_j \ell_j(x)\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Imposing the interpolation conditions \(L(x_i) = y_i\), we get:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">                   
+                    <span class="var">\(y_i\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="op">\(\displaystyle\sum_{j=0}^n\)</span>
+                    <span class="var">\(a_j \ell_j(x_i)\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Due to the Kronecker delta property \(\ell_j(x_i) = \delta_{ij}\), this simplifies to:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">                   
+                    <span class="var">\(y_i\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(a_i\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Thus, we obtain the explicit Lagrange interpolation formula:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">                   
+                    <span class="var">\(L(x)\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="op">\(\displaystyle\sum_{j=0}^n\)</span>
+                    <span class="var">\(y_j \ell_j(x)\)</span>
+                </div>
+            </div>
+
+            <div class="where-block blue">
+                <div class="where-label">where</div>
+                <div class="where-term">
+                    <span class="term-sym">\(\ell_j(x)\)</span>
+                    <span class="term-sep">\(=\)</span>
+                    <span class="term-desc">\(\displaystyle\prod_{m=0\\ m \neq j}^n \frac{x - x_m}{x_j - x_m}\)</span>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">lagrange interpolating polynomial</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Consider the points (1, 2), (2, 3), and (3, 5). The corresponding Lagrange interpolating polynomial is:</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>Lagrange interpolating polynomial definition:</p>
+                            \[
+                                L(x) = \sum_{j=0}^n y_j \ell_j(x)
+                            \]
+                            <p>where,</p>
+                            \[
+                                \ell_j (x) = \prod_{m=0\\ m \neq j}^n \frac{x - x_m}{x_j - x_m}
+                            \]
+                            <p>We get, </p>
+                            \[
+                                L(x) = 2\ell_1(x) + 3\ell_2(x) + 5\ell_3(x)
+                            \]
+                            <p>Solving,</p>
+                            \[
+                                \ell_1(x) = \frac{(x-2)(x-3)}{(1-2)(1-3)} \\[10pt]
+                                \ell_2(x) = \frac{(x-1)(x-3)}{(2-1)(2-3)} \\[10pt]
+                                \ell_3(x) = \frac{(x-1)(x-2)}{(3-1)(3-2)}
+                            \]
+                            <p>Simplifing,</p>
+                            \[
+                                \ell_1(x) = \frac{x^2-3x-2x+6}{2} \\[10pt]
+                                \ell_2(x) = \frac{x^2-3x-x+3}{-1} \\[10pt]
+                                \ell_3(x) = \frac{x^2-2x-x+2}{2}
+                            \]
+                            <p>Lagrange interpolating polynomial is:</p>
+                            \[
+                                \begin{aligned}
+                                L(x) = \; & 2\left(\frac{x^2-5x+6}{2}\right) \\
+                                    &+ 3\left(\frac{x^2-4x+3}{-1}\right) \\
+                                    &+ 5\left(\frac{x^2-3x+2}{2}\right) \\
+                                \end{aligned}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">lagrange interpolating polynomial</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Given the data points (0, 1), (1, 2), and (2, 0), determine the Lagrange interpolating polynomial explicitly and simplify your result.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>Lagrange interpolating polynomial definition:</p>
+                            \[
+                                L(x) = \sum_{j=0}^n y_j \ell_j(x)
+                            \]
+                            <p>where,</p>
+                            \[
+                                \ell_j (x) = \prod_{m=0\\ m \neq j}^n \frac{x - x_m}{x_j - x_m}
+                            \]
+                            <p>We get, </p>
+                            \[
+                                L(x) = 1\ell_1(x) + 2\ell_2(x) + 0\ell_3(x)
+                            \]
+                            <p>Solving,</p>
+                            \[
+                                \ell_1(x) = \frac{(x-1)(x-2)}{(0-1)(0-2)} \\[10pt]
+                                \ell_2(x) = \frac{(x-0)(x-2)}{(1-0)(1-2)} \\[10pt]
+                                \ell_3(x) = \frac{(x-0)(x-1)}{(2-0)(2-1)} \\
+                            \]
+                            <p>Simplifing,</p>
+                            \[
+                                \ell_1(x) = \frac{x^2-3x+2}{2} \\[10pt]
+                                \ell_2(x) = \frac{x^2 - 2x}{-1} \\[10pt]
+                                \ell_3(x) = \frac{x^2 - x}{2}
+                            \]
+                            <p>Lagrange interpolating polynomial is:</p>
+                            \[
+                                \begin{aligned}
+                                L(x) = \; & \left(\frac{x^2-3x+2}{2}\right) \\
+                                    &+ 2\left(-x^2 + 2x\right) \\
+                                    &+ 0\left(\frac{x^2 - x}{2}\right)
+                                \end{aligned}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
                    
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
