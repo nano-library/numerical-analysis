@@ -69,9 +69,900 @@
 
 		<div class="content-body">
 
-			<div class="intro-card">
-				✨ 
+            <div class="intro-card">
+				✨ This approach approximates the dominant eigenvalue and the associated eigenvector for a given n-dimensional matrix A.
 			</div>
+
+            <div class="intro-card">
+                We make the following assumptions regarding the matrix A.
+            </div>
+
+            <ul>
+                <li>There exists a unique eigenvalue with the maximum absolute value.</li>
+                <li>The matrix possesses a complete set of n linearly independent eigenvectors.</li>
+            </ul>
+
+            <div class="intro-card">
+                From the first assumption, we have n eigenvalues \(\lambda_1, \lambda_2, \ldots, \lambda_n\) with
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(|\lambda_1|\)</span>
+                    <span class="op"> > </span>
+                    <span class="var">\(|\lambda_2|\)</span>
+                    <span class="op">\(\geq\)</span>
+                    <span class="var">\(|\lambda_3|\)</span>
+                    <span class="op">\(\geq\)</span>
+                    <span class="var">\(\ldots\)</span>
+                    <span class="op">\(\geq\)</span>
+                    <span class="var">\(|\lambda_n|\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                From the second assumption let us assume the associated eigenvectors are \(x_i\;(i = 1, 2 \ldots n)\). 
+                Thus \(\lambda_1\) is the dominating eigenvalue of A with associated eigenvector \(x_1\).
+            </div>
+
+            <div class="intro-card">
+                Suppose \(v^{(0)}\) is the initial guess. Then \(v^{(0)}\) can be written as
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(v^{(0)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\alpha_1 x_1\)</span>
+                    <span class="op">+</span>
+                    <span class="var">\(\alpha_2 x_2\)</span>
+                    <span class="op">+</span>
+                    <span class="var">\(\ldots\)</span>
+                    <span class="op">+</span>
+                    <span class="var">\(\alpha_n x_n\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                We assume, \(\alpha_1 \neq 0\). We then iteratively find,
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(v^{(1)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A v^{(0)}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(v^{(2)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A v^{(1)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A A v^{(0)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A^2 v^{(0)}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(v^{(k)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A^k v^{(0)}\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Now, where \(\epsilon^{(k)} \rightarrow 0\) as \(k \rightarrow \infty\), 
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(A^k v^{(0)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A^k( \alpha_1 x_1\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\alpha_2 x_2\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\ldots\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\alpha_n x_n)\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(A^k v^{(0)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\lambda^k_1 \alpha_1 x_1\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\lambda^k_2 \alpha_2 x_2\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\ldots\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\lambda^k_n \alpha_n x_n\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(A^k v^{(0)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\lambda^k_1 \Big( \alpha_1 x_1 \)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\left(\frac{\lambda_2}{\lambda_1}\right)^k \alpha_2 x_2\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\ldots\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\left(\frac{\lambda_n}{\lambda_1}\right)^k \alpha_n x_n \Big) \)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(A^k v^{(0)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\lambda^k_1 \Big( \alpha_1 x_1 \)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\epsilon^{(k)} \big)\)</span>
+                </div>
+            </div>
+            
+            <div class="intro-card">
+                Suppose \(\phi\) is a linear functional with \(\phi(x_1) \neq 0\). Let us now consider the following ratio,
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(r_k\)</span>
+                    <span class="op">\(\equiv\)</span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(\phi(v^{(k+1)})\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\phi(v^{(k)})\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(r_k\)</span>
+                    <span class="op">\(\equiv\)</span>
+                    <span class="var">\(\lambda_1 \Big(\)</span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(\phi(\alpha_1 x_1)\)</span>
+                            <span class="op"> + </span>
+                            <span class="var">\(\phi(\epsilon^{(k+1)})\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\phi(\alpha_1 x_1)\)</span>
+                            <span class="op"> + </span>
+                            <span class="var">\(\phi(\epsilon^{(k)})\)</span>
+                        </span>
+                    </span>
+                    <span class="var">\(\Big)\)</span>
+                    <span class="op">\(\rightarrow\)</span>
+                    <span class="var">\(\lambda_1\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                We will use \(\phi(x) = \|x\|_{\infty}\).
+                Also, note that as \(k \rightarrow \infty\) the direction of \(v^{(k)}\) aligns with \(x_1\). 
+                Therefore, \(v^{(k)}\) can be considered as the corresponding eigenvector of the dominant eigenvalue. 
+                We also normalize the vector \(v^{(k)}\) after each iteration to prevent the vector being multiplied from growing indefinitely as the iterations progress.
+            </div>
+
+            <div class="intro-card">
+                The final method then can be written as the following, \(k = 1,2,\ldots\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Power Method</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(y^{(k)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A v^{(k-1)}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Power Method</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\lambda^{(k)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\|y^{(k)}\|_{\infty}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Power Method</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(v^{(k)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(y^{(k)}\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\|y^{(k)}\|_{\infty}\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">approximating the dominant eigenvalue of the matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Use the Power Method with the Infinity Norm to approximate the dominant eigenvalue of the matrix:</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    7 & 2\\
+                                    1 & 4\\
+                                \end{bmatrix}
+                            \]
+                            <p>with the initial guess</p>
+                            \[
+                                v^{(0)} =
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>We iteratively compute \(y^{(k)} = Av^{(k - 1)}\), find the row norm, and then normalize.</p>
+                            <p>Iteration 1:</p>
+                            \[
+                                y^{(1)} = Av^{(0)}
+                            \]
+                            \[
+                                y^{(1)} = 
+                                \begin{bmatrix}
+                                    7 & 2\\
+                                    1 & 4\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                y^{(1)} = 
+                                \begin{bmatrix}
+                                    9\\
+                                    5\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \lambda^{(1)} = \|y^{(1)}\|_{\infty} \\[10pt]
+                                \lambda^{(1)} = 9
+                            \]
+                            \[
+                                v^{(1)} = \frac{y^{(1)}}{\lambda^{(1)}}
+                                \\[10pt]
+                                v^{(1)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    \frac{5}{9}\\
+                                \end{bmatrix}
+                                \\[10pt]
+                                v^{(1)} =
+                                \begin{bmatrix}
+                                    1\\
+                                    0.5555\\
+                                \end{bmatrix}
+                            \]
+                            <p>Iteration 2:</p>
+                            \[
+                                y^{(2)} = Av^{(1)}
+                            \]
+                            \[
+                                y^{(2)} = 
+                                \begin{bmatrix}
+                                    7 & 2\\
+                                    1 & 4\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    1\\
+                                    \frac{5}{9}\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                y^{(2)} = 
+                                \begin{bmatrix}
+                                    \frac{73}{9}\\
+                                    \frac{29}{9}\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \lambda^{(2)} = \|y^{(2)}\|_{\infty} \\[10pt]
+                                \lambda^{(2)} = \frac{73}{9} \\[10pt] 
+                                \lambda^{(2)} \approx 8.11
+                            \]
+                            \[
+                                v^{(2)} = \frac{y^{(2)}}{\lambda^{(2)}} 
+                                \\[10pt]
+                                v^{(2)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    \frac{29}{73}\\
+                                \end{bmatrix}
+                                \\[10pt]
+                                v^{(2)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    0.3972\\
+                                \end{bmatrix}
+                            \]
+                            <p>Iteration 3:</p>
+                            \[
+                                y^{(3)} = Av^{(2)}
+                            \]
+                            \[
+                                y^{(3)} = 
+                                \begin{bmatrix}
+                                    7 & 2\\
+                                    1 & 4\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    1\\
+                                    \frac{29}{73}\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                y^{(3)} = 
+                                \begin{bmatrix}
+                                    \frac{569}{73}\\
+                                    \frac{189}{73}\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \lambda^{(3)} = \|y^{(3)}\|_{\infty} \\[10pt]
+                                \lambda^{(3)} = \frac{569}{73} \\[10pt]
+                                \lambda^{(3)} \approx 7.79
+                            \]
+                            \[
+                                v^{(3)} = \frac{y^{(3)}}{\lambda^{(3)}}
+                            \]
+                            \[
+                                v^{(3)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    \frac{189}{569}\\
+                                \end{bmatrix}
+                                \\[10pt] 
+                                v^{(3)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    0.3321\\
+                                \end{bmatrix}
+                            \]
+                            <p>Eigenvalues of A:</p>
+                            \[
+                                |A - \lambda I| = 0
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    7 & 2\\
+                                    1 & 4\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    \lambda & 0\\
+                                    0 & \lambda\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    7-\lambda & 2\\
+                                    1 & 4-\lambda\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                (7-\lambda)(4-\lambda) - 2 = 0
+                            \]
+                            \[
+                                28 - 7\lambda - 4\lambda + \lambda^2 - 2 = 0
+                            \]
+                            \[
+                                \lambda^2 - 11\lambda + 26 = 0
+                            \]
+                            \[
+                                \lambda_1 = 7.5615 \quad \lambda_2 = 3.4384
+                            \]
+                            <p>
+                                \(\lambda_1 = 7.5615\) is dominant eigenvalue. <br>
+                                Eigenvectors of \(A\): <br>
+                                for \(\lambda_1\)
+                            </p>
+                            \[
+                                (A - \lambda_1I)x = 0
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    7-7.5615 & 2\\
+                                    1 & 4-7.5615\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    -0.5615 & 2\\
+                                    1 & -3.5615\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                -0.5615x_1 + 2x_2 = 0 \\[10pt] 
+                                1x_1 - 3.5615x_2 = 0
+                            \]
+                            \[
+                                x_1 = \frac{2}{0.5615}x_2
+                            \]
+                            \[
+                                x_1 = 3.5615 x_2
+                            \]
+                            <p>Let \(x_2 = 1\)</p>
+                            \[
+                                v_1 = 
+                                \begin{bmatrix}
+                                    3.5615\\
+                                    1\\
+                                \end{bmatrix} 
+                            \]
+                            <p>Normalizing</p>
+                            \[
+                                v_1 = 
+                                \begin{bmatrix}
+                                    1\\
+                                    0.2807\\
+                                \end{bmatrix} 
+                            \]
+                            <p>Now, for \(\lambda_2\)</p>
+                            \[
+                                (A - \lambda_2I)x = 0
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    7-3.4384 & 2\\
+                                    1 & 4-3.4384\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    3.5616 & 2\\
+                                    1 & 0.5616\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                3.5616x_1 + 2x_2 = 0 \\[10pt] 
+                                1x_1 + 0.5615x_2 = 0
+                            \]
+                            \[
+                                x_1 = -0.5615 x_2
+                            \]
+                            <p>Let \(x_2 = 1\)</p>
+                            \[
+                                v_1 = 
+                                \begin{bmatrix}
+                                    -0.5615\\
+                                    1\\
+                                \end{bmatrix} 
+                            \]
+                            <p>Normalizing</p>
+                            \[
+                                v_1 = 
+                                \begin{bmatrix}
+                                    1\\
+                                    -1.7809\\
+                                \end{bmatrix} 
+                            \]
+
+                            <p>
+                                \(v_1 = [1, 0.2807]^T\) is the dominant eigenvector of \(A\). <br>
+                                The eigenvalue approximations: \(\lambda^{(1)} = 9\), \(\lambda^{(2)} \approx 8.11\), \(\lambda^{(3)} \approx 7.79\) are decreasing toward the true dominant eigenvalue \(7.5615\). <br>
+                                The eigenvector approximations: \(v^{(1)} = [1, 0.5555]^T\), \(v^{(2)} = [1, 0.3972]^T\), \(v^{(3)} = [1, 0.3321]^T\) are converging to the true dominant eigenvector (proportional to \([1, 0.2807]^T\)). <br>
+                                After just 3 iterations, we're getting reasonably close to the true values. <br>
+                                Approximate dominant eigenvalue after 3 iterations:
+                            </p>
+                            \[
+                                \lambda_1 \approx 7.79
+                            \]
+                            <p>Approximate dominant eigenvector:</p>
+                            \[
+                                v_1 \approx
+                                \begin{bmatrix}
+                                    1\\
+                                    0.3321\\
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">approximating the dominant eigenvalue of the matrix</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Use the Power Method with the Infinity Norm to approximate the dominant eigenvalue of the matrix:</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    4 & 3\\
+                                    2 & 5\\
+                                \end{bmatrix}
+                            \]
+                            <p>with the initial guess</p>
+                            \[
+                                v^{(0)} =
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            <p>Perform three iterations and report the approximate dominant eigenvalue.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>We iteratively compute \(y^{(k)} = Av^{(k - 1)}\), find the row norm, and then normalize.</p>
+                            <p>Iteration 1:</p>
+                            \[
+                                y^{(1)} = Av^{(0)}
+                            \]
+                            \[
+                                y^{(1)} = 
+                                \begin{bmatrix}
+                                    4 & 3\\
+                                    2 & 5\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                y^{(1)} = 
+                                \begin{bmatrix}
+                                    7\\
+                                    7\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \lambda^{(1)} = \|y^{(1)}\|_{\infty} \\[10pt]
+                                \lambda^{(1)} = 7
+                            \]
+                            \[
+                                v^{(1)} = \frac{y^{(1)}}{\lambda^{(1)}}
+                                \\[10pt]
+                                v^{(1)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            <p>Iteration 2:</p>
+                            \[
+                                y^{(2)} = Av^{(1)}
+                            \]
+                            \[
+                                y^{(2)} = 
+                                \begin{bmatrix}
+                                    4 & 3\\
+                                    2 & 5\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                y^{(2)} = 
+                                \begin{bmatrix}
+                                    7\\
+                                    7\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \lambda^{(2)} = \|y^{(2)}\|_{\infty} \\[10pt]
+                                \lambda^{(2)} = 7
+                            \]
+                            \[
+                                v^{(2)} = \frac{y^{(2)}}{\lambda^{(2)}} 
+                                \\[10pt]
+                                v^{(2)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            <p>Iteration 3:</p>
+                            \[
+                                y^{(3)} = Av^{(2)}
+                            \]
+                            \[
+                                y^{(3)} = 
+                                \begin{bmatrix}
+                                    4 & 3\\
+                                    2 & 5\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                y^{(3)} = 
+                                \begin{bmatrix}
+                                    7\\
+                                    7\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \lambda^{(3)} = \|y^{(3)}\|_{\infty} \\[10pt]
+                                \lambda^{(3)} = 7
+                            \]
+                            \[
+                                v^{(3)} = \frac{y^{(3)}}{\lambda^{(3)}}
+                            \]
+                            \[
+                                v^{(3)} = 
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                            <p>Eigenvalues of A:</p>
+                            \[
+                                |A - \lambda I| = 0
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    4 & 3\\
+                                    2 & 5\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    \lambda & 0\\
+                                    0 & \lambda\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    4-\lambda & 3\\
+                                    2 & 5-\lambda\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                (4-\lambda)(5-\lambda) - 6 = 0
+                            \]
+                            \[
+                                20 - 4\lambda - 5\lambda + \lambda^2 - 6 = 0
+                            \]
+                            \[
+                                \lambda^2 - 9\lambda + 14 = 0
+                            \]
+                            \[
+                                \lambda_1 = 7 \quad \lambda_2 = 2
+                            \]
+                            <p>
+                                \(\lambda_1 = 7\) is dominant eigenvalue. <br>
+                                Eigenvectors of \(A\): <br>
+                                for \(\lambda_1\)
+                            </p>
+                            \[
+                                (A - \lambda_1I)x = 0
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    4-7 & 3\\
+                                    2 & 5-7\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    -3 & 3\\
+                                    2 & -2\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                -3x_1 + 3x_2 = 0 \\[10pt] 
+                                2x_1 - 2x_2 = 0
+                            \]
+                            \[
+                                x_1 = x_2
+                            \]
+                            <p>Let \(x_2 = 1\)</p>
+                            \[
+                                v_1 = 
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix} 
+                            \]
+                            <p>Now, for \(\lambda_2\)</p>
+                            \[
+                                (A - \lambda_2I)x = 0
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    4-2 & 3\\
+                                    2 & 5-2\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    2 & 3\\
+                                    2 & 3\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1\\
+                                    x_2\\
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    0\\
+                                    0\\
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                2x_1 + 3x_2 = 0 
+                            \]
+                            \[
+                                x_1 = -\frac{3}{2}x_2
+                            \]
+                            <p>Let \(x_2 = 2\)</p>
+                            \[
+                                v_1 = 
+                                \begin{bmatrix}
+                                    -3\\
+                                    2\\
+                                \end{bmatrix} 
+                            \]
+                            <p>
+                                \(v_1 = [1, 1]^T\) is the dominant eigenvector of \(A\). <br>
+                                The eigenvalue approximations: \(\lambda^{(1)} = 7\), \(\lambda^{(2)} = 7\), \(\lambda^{(3)} = 7\) are all exactly equal to the true dominant eigenvalue \(7\) from the very first iteration. <br>
+                                The eigenvector approximations: \(v^{(1)} = [1, 1]^T\), \(v^{(2)} = [1, 1]^T\), \(v^{(3)} = [1, 1]^T\) are all exactly equal to the true dominant eigenvector \([1, 1]^T\). <br>
+                                This is because the initial guess \(v^{(0)} = [1, 1]^T\) happens to be exactly the dominant eigenvector, so the Power Method converged immediately in just one iteration. <br>
+                                Approximate dominant eigenvalue after 3 iterations:
+                            </p>
+                            \[
+                                \lambda_1 \approx 7
+                            \]
+                            <p>Approximate dominant eigenvector:</p>
+                            \[
+                                v_1 \approx
+                                \begin{bmatrix}
+                                    1\\
+                                    1\\
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
             
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
