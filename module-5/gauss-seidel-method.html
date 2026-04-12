@@ -409,6 +409,246 @@
                     </div>
                 </div>
             </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 4</span>
+                    <span class="example-sub">determining the rate of convergence</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Determine the rate of convergence for the Seidel method for the system:</p>
+                            \[
+                                \begin{bmatrix}
+                                    4 & 0 & 2 \\
+                                    0 & 5 & 2 \\
+                                    5 & 4 & 10
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1 \\
+                                    x_2 \\
+                                    x_3
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    4 \\
+                                    -3 \\
+                                    2
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>We now determine the rate of convergence for the Gauss-Seidel method for the system:</p>
+                            \[
+                                \begin{bmatrix}
+                                    4 & 0 & 2 \\
+                                    0 & 5 & 2 \\
+                                    5 & 4 & 10
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1 \\
+                                    x_2 \\
+                                    x_3
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    4 \\
+                                    -3 \\
+                                    2
+                                \end{bmatrix}
+                            \]
+
+                            <p>The Gauss-Seidel iteration matrix is \(B_{GS} = -(D+L)^{-1} U\), where \(A = D + L + U\) with \(D\) diagonal, \(L\) strictly lower triangular, \(U\) strictly upper triangular.</p>
+
+                            <p>From \(A\):</p>
+                            \[
+                                D = 
+                                \begin{bmatrix} 
+                                    4 & 0 & 0 \\ 
+                                    0 & 5 & 0 \\ 
+                                    0 & 0 & 10 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                L = 
+                                \begin{bmatrix} 
+                                    0 & 0 & 0 \\ 
+                                    0 & 0 & 0 \\ 
+                                    5 & 4 & 0 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                U = 
+                                \begin{bmatrix} 
+                                    0 & 0 & 2 \\ 
+                                    0 & 0 & 2 \\ 
+                                    0 & 0 & 0 
+                                \end{bmatrix}
+                            \]
+
+                            <p>Form \(D+L\):</p>
+                            \[
+                                D+L = 
+                                \begin{bmatrix} 
+                                    4 & 0 & 0 \\ 
+                                    0 & 5 & 0 \\ 
+                                    5 & 4 & 10 
+                                \end{bmatrix}
+                            \]
+
+                            <p>Find \((D+L)^{-1}\). Solve \((D+L)X = I\) for the inverse by rows.</p>
+
+                            <p>
+                                Let 
+                                \[
+                                    (D+L)^{-1} = 
+                                    \begin{bmatrix} 
+                                        a & b & c \\ 
+                                        d & e & f \\ 
+                                        g & h & i 
+                                    \end{bmatrix}
+                                \].
+                            </p>
+
+                            <p>First column of inverse solves \( (D+L) \begin{bmatrix} a \\ d \\ g \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} \):</p>
+                            \[
+                                4a = 1 \implies a = 1/4
+                            \]
+                            \[
+                                0a + 5d = 0 \implies d = 0
+                            \]
+                            \[
+                                5a + 4d + 10g = 0 \implies 5(1/4) + 0 + 10g = 0 \implies 10g = -5/4 \implies g = -1/8
+                            \]
+
+                            <p>Second column solves \( (D+L) \begin{bmatrix} b \\ e \\ h \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} \):</p>
+                            \[
+                                4b = 0 \implies b = 0
+                            \]
+                            \[
+                                0b + 5e = 1 \implies e = 1/5
+                            \]
+                            \[
+                                5b + 4e + 10h = 0 \implies 0 + 4(1/5) + 10h = 0 \implies 10h = -4/5 \implies h = -2/25 = -0.08
+                            \]
+
+                            <p>Third column solves \( (D+L) \begin{bmatrix} c \\ f \\ i \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} \):</p>
+                            \[
+                                4c = 0 \implies c = 0
+                            \]
+                            \[
+                                0c + 5f = 0 \implies f = 0
+                            \]
+                            \[
+                                5c + 4f + 10i = 1 \implies 0 + 0 + 10i = 1 \implies i = 1/10
+                            \]
+
+                            <p>Thus:</p>
+                            \[
+                                (D+L)^{-1} = 
+                                \begin{bmatrix}
+                                    1/4 & 0 & 0 \\
+                                    0 & 1/5 & 0 \\
+                                    -1/8 & -2/25 & 1/10
+                                \end{bmatrix}
+                            \]
+
+                            <p>Now \(U\):</p>
+                            \[
+                                U = 
+                                \begin{bmatrix} 
+                                    0 & 0 & 2 \\ 
+                                    0 & 0 & 2 \\ 
+                                    0 & 0 & 0 
+                                \end{bmatrix}
+                            \]
+
+                            <p>Gauss-Seidel iteration matrix: \(B_{GS} = -(D+L)^{-1} U\).</p>
+
+                            <p>Compute \((D+L)^{-1} U\):</p>
+                            \[
+                                M = 
+                                \begin{bmatrix}
+                                    1/4 & 0 & 0 \\
+                                    0 & 1/5 & 0 \\
+                                    -1/8 & -2/25 & 1/10
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    0 & 0 & 2 \\
+                                    0 & 0 & 2 \\
+                                    0 & 0 & 0
+                                \end{bmatrix}
+                            \]
+
+                            <p>First column of product: all zeros because first column of \(U\) is zeros.</p>
+                            <p>Second column of product: all zeros because second column of \(U\) is zeros.</p>
+                            <p>Third column: \(U\)'s third column = \([2, 2, 0]^T\). Multiply \(M \cdot [2,2,0]^T\):</p>
+
+                            \[
+                                (1/4)(2) + 0 + 0 = 0.5
+                            \]
+                            \[
+                                0 + (1/5)(2) + 0 = 0.4
+                            \]
+                            \[
+                                (-1/8)(2) + (-2/25)(2) + 0 = -0.25 - 0.16 = -0.41
+                            \]
+
+                            <p>So:</p>
+                            \[
+                                (D+L)^{-1}U = 
+                                \begin{bmatrix}
+                                    0 & 0 & 0.5 \\
+                                    0 & 0 & 0.4 \\
+                                    0 & 0 & -0.41
+                                \end{bmatrix}
+                            \]
+
+                            <p>Thus:</p>
+                            \[
+                                B_{GS} = - 
+                                \begin{bmatrix}
+                                    0 & 0 & 0.5 \\
+                                    0 & 0 & 0.4 \\
+                                    0 & 0 & -0.41
+                                \end{bmatrix}
+                                = 
+                                \begin{bmatrix}
+                                    0 & 0 & -0.5 \\
+                                    0 & 0 & -0.4 \\
+                                    0 & 0 & 0.41
+                                \end{bmatrix}
+                            \]
+
+                            <p>Eigenvalues of \(B_{GS}\): This matrix is upper triangular, so eigenvalues are the diagonal entries: \(0, 0, 0.41\).</p>
+
+                            <p>Spectral radius:</p>
+                            \[
+                                \rho(B_{GS}) = 0.41
+                            \]
+
+                            <p>Rate of convergence (asymptotic):</p>
+                            \[
+                                R_{GS} = -\ln(\rho(B_{GS})) = -\ln(0.41) \approx 0.8916
+                            \]
+
+                            <p><strong>Final answer:</strong></p>
+                            \[
+                                \rho(B_{GS}) = 0.41,\quad R_{GS} \approx 0.8916
+                            \]
+
+                            <p>The Gauss-Seidel method converges faster than the Jacobi method here because \(\rho(B_{GS}) < \rho(B_J)\).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			    
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
