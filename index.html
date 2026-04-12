@@ -1,72 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Numerical Analysis - List of Contents</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numerical Analysis · Nano Library</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/x-icon" href="https://nano-library.github.io/web-styling/favicon.png">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" href="https://nano-library.github.io/web-styling/style.css"/>
-</head>
+    <link rel="stylesheet" href="https://nano-library.github.io/web-styling/css/colors.css">
+    <link rel="stylesheet" href="https://nano-library.github.io/web-styling/css/list-of-contents.css">
+  </head>
 <body>
-    <div id="navigation">
-        <nav class="concept-nav" aria-label="Concept navigation">
-            <a class="nav-btn prev" href="https://nano-library.github.io/" rel="prev">\(\leftarrow\) Back</a>
-        </nav>
-    </div>
-    <div id="title">
-        <h2>Numerical Analysis</h2>
-        <hr>
-    </div>
-    <div id="chapter">
-        <ol>
-            <h2>Concepts</h2>
-            <li><a href="introduction.html">Introduction</a></li>
-            <li><a href="concepts/floating-point-system.html">\(\rightarrow\) 1. Floating Point System</a></li>
-            <li><a href="concepts/unit-roundoff.html">\(\rightarrow\) 2. Unit Roundoff</a></li>
-            <li><a href="concepts/machine-representation-of-number.html">\(\rightarrow\) 3. Machine Representation of Number</a></li>
-            <li><a href="concepts/root-finding-methods/index.html">\(\rightarrow\) 4. Root Finding Methods</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/root-finding-methods/bisection-method.html">\(\rightarrow\) 4.1 Bisection Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/root-finding-methods/secant-method.html">\(\rightarrow\) 4.2 Secant Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/root-finding-methods/regula-falsi-method.html">\(\rightarrow\) 4.3 Regular-Falsi Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/root-finding-methods/one-point-method.html">\(\rightarrow\) 4.4 One-Point Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/root-finding-methods/fixed-point-iteration-method.html">\(\rightarrow\) 4.5 Fixed Point Iteration Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/root-finding-methods/modified-newtons-method.html">\(\rightarrow\) 4.6 Modified Newton's Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/root-finding-methods/system-of-non-linear-equations.html">\(\rightarrow\) 4.7 System Of Non-linear Equations</a></li>
-            <li><a href="concepts/order-and-convergence-analysis.html">\(\rightarrow\) 5. Order and Convergence Analysis</a></li>
-            <li><a href="concepts/matrices-and-system-of-linear-equations/index.html">\(\rightarrow\) 6. Matrices and System of Linear Equations</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/matrices-and-system-of-linear-equations/gaussian-elimination-method.html">\(\rightarrow\) 6.1 Gaussian Elimination Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/matrices-and-system-of-linear-equations/pivoting-method.html">\(\rightarrow\) 6.2 Pivoting Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/matrices-and-system-of-linear-equations/lu-factorisation.html">\(\rightarrow\) 6.3 LU Factorisation</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/matrices-and-system-of-linear-equations/cholesky-factorisation.html">\(\rightarrow\) 6.4 Cholesky Factorisation</a></li>
-            <li><a href="concepts/norms-of-vectors-and-matrices.html">\(\rightarrow\) 7. Norms of Vectors and Matrices</a></li>
-            <li><a href="concepts/linear-systems/index.html">\(\rightarrow\) 8. Linear Systems: Direct and Iterative Schemes</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/linear-systems/gauss-jacobi-method.html">\(\rightarrow\) 8.1 Gauss-Jacobi Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/linear-systems/gauss-seidel-method.html">\(\rightarrow\) 8.2 Gauss-Seidel Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/linear-systems/successive-over-relaxation-method.html">\(\rightarrow\) 8.3 Successive Over Relaxation Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/linear-systems/power-method.html">\(\rightarrow\) 8.4 Power Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/linear-systems/inverse-power-method.html">\(\rightarrow\) 8.5 Inverse Power Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/linear-systems/least-square-method.html">\(\rightarrow\) 8.6 Least Square Method</a></li>
-            <li><a href="concepts/interpolation/index.html">\(\rightarrow\) 9. Interpolation</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/interpolation/lagrange-interpolation.html">\(\rightarrow\) 9.1 Lagrange Interpolation</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/interpolation/newton-divided-difference-interpolation.html">\(\rightarrow\) 9.2 Newton Divided Difference Interpolation</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/interpolation/polynomial interpolation.html">\(\rightarrow\) 9.3 Polynomial Interpolation</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/interpolation/numerical-integration.html">\(\rightarrow\) 9.4 Numerical Integration</a></li>
-            <li><a href="concepts/method-of-undetermined-coefficients/index.html">\(\rightarrow\) 10. Method of undetermined coefficients</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/method-of-undetermined-coefficients/two-points-newton-cotes-method.html">\(\rightarrow\) 10.1 Two Points Newton Cotes Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/method-of-undetermined-coefficients/three-points-newton-cotes-method.html">\(\rightarrow\) 10.2 Three Points Newton Cotes Method</a></li>
-            <li><a href="concepts/gauss-legendre-methods/index.html">\(\rightarrow\) 11. Gauss Legendre Methods</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/gauss-legendre-methods/one-point-gauss-legendre-method.html">\(\rightarrow\) 11.1 One Point Gauss Legendre Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/gauss-legendre-methods/two-point-gauss-legendre-method.html">\(\rightarrow\) 11.2 Two Point Gauss Legendre Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/gauss-legendre-methods/three-point-gauss-legendre-method.html">\(\rightarrow\) 11.3 Three Point Gauss Legendre Method</a></li>
-            <li><a href="concepts/ordinary-differential-equations/index.html">\(\rightarrow\) 12. Ordinary Differential Equations</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/ordinary-differential-equations/taylor's-method.html">\(\rightarrow\) 12.1 Taylor's Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/ordinary-differential-equations/euler's-method.html">\(\rightarrow\) 12.2 Euler's Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/ordinary-differential-equations/rk2-method.html">\(\rightarrow\) 12.3 RK2 Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/ordinary-differential-equations/rk4-method.html">\(\rightarrow\) 12.4 RK4 Method</a></li>
-            <li style="text-indent: 2em;"><a href="concepts/ordinary-differential-equations/stability-of-ode-solvers.html">\(\rightarrow\) 12.4 Stability of ODE Solvers</a></li>
-            
-            <li><a href="revision-sheet.html">Revision Sheet</a></li>
-        </ol>
-    </div>
+    <a class="back-button" href="https://nano-library.github.io/">
+        <span class="back-arrow">\(\leftarrow\)</span>
+        <span>back home</span>
+    </a>
+
+	<main>
+		<div class="page-header">
+		<h1 class="page-title">Numerical Analysis</h1>
+		<p class="page-subtitle"></p>
+		</div>
+
+		<div class="divider">
+			<span class="divider-line"></span>
+			<span class="divider-flower">✦</span>
+			<span class="divider-flower">❀</span>
+			<span class="divider-flower">✦</span>
+			<span class="divider-line"></span>
+		</div>
+
+		<div class="contents-list">
+			<p class="section-label">Module 1 \(\cdot\) Foundations</p>
+
+			<a class="content-item" href="module-1/floating-point-system.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Floating Point System</div>
+					<div class="item-meta">Base (\(\beta\)), Exponent range</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-1/unit-roundoff.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Unit Roundoff</div>
+					<div class="item-meta">Chopping, Rounding, Error</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-1/machine-representation-of-number.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Machine Representation of Number</div>
+					<div class="item-meta">IEEE 754, Single precision, Double precision, Overflow, Underflow</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<p class="section-label">Module 2 \(\cdot\) Root Finding Methods</p>	
+			<a class="content-item" href="module-2/bisection-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Bisection Method</div>
+					<div class="item-meta">Intermediate Value Theorem, Number of Iterations, Order of Convergence, Iterative method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-2/secant-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Secant Method</div>
+					<div class="item-meta">Chord-based, Number of Iterations, Order of Convergence, Iterative method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+			<a class="content-item" href="module-2/regula-falsi-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Regular-Falsi Method</div>
+					<div class="item-meta">False position, Order of Convergence, Iterative method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+			
+			<a class="content-item" href="module-2/newton-raphson-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Newton-Raphson method</div>
+					<div class="item-meta">Linear approximation, Taylor series, Quadratic convergence, Iterative method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+			<a class="content-item" href="module-2/one-point-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">One-Point Method</div>
+					<div class="item-meta">Existance and uniqueness of a fixed point, Initial guess, Fixed-point iteration method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+			<a class="content-item" href="module-2/modified-newtons-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Modified Newton's Method</div>
+					<div class="item-meta">Multiplicity, First derivative, Order of convergence</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+            <a class="content-item" href="module-2/system-of-non-linear-equations.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">System of Non-Linear Equations</div>
+					<div class="item-meta">Jacobian matrix, Newton-Raphson extension, Fixed-point iteration, Initial guess, Iterative Method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+            <p class="section-label">Module 3 \(\cdot\) Matrices and System of Linear Equations</p>
+            <a class="content-item" href="module-3/gaussian-elimination-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Gaussian Elimination Method</div>
+					<div class="item-meta">Augmented matrix, Multiplicity, Row operations, Operation Count</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+            <a class="content-item" href="module-3/pivoting-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Pivoting Method</div>
+					<div class="item-meta">Partial pivoting, Full pivoting, Row interchange</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+            <a class="content-item" href="module-3/lu-factorisation.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">LU Factorisation</div>
+					<div class="item-meta">Doolittle method, Crout method, Forward and Back substitution, Matrix decomposition</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>	
+
+            <a class="content-item" href="module-3/cholesky-factorisation.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Cholesky Factorisation</div>
+					<div class="item-meta">Symmetric matrix, Positive definite, Unique decomposition</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>		
+
+			<p class="section-label">Module 4 \(\cdot\) Norms</p>
+			<a class="content-item" href="module-4/norms-vectors.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Vector norm</div>
+					<div class="item-meta">\(l^1\) norm, Euclidean (or \(l^2\) ) norm, Maximum (or \(l^{\infty}\)) norm</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+			
+			<a class="content-item" href="module-4/norms-matrix.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Matrix norm</div>
+					<div class="item-meta">Column norm, Frobenius norm, Row norm</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-4/sensitivity-of-linear-system.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Sensitivity Of Linear System</div>
+					<div class="item-meta">Condition number, Hilbert matrix, Vandermonde matrix</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<p class="section-label">Module 5 \(\cdot\) Linear Systems: Direct and Iterative Schemes</p>
+			<a class="content-item" href="module-5/gauss-jacobi-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Gauss-Jacobi Method</div>
+					<div class="item-meta">Simultaneous updates, Spectral radius, Linear system,  Initial guess, Iterative method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-5/gauss-seidel-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Gauss-Seidel Method</div>
+					<div class="item-meta">Sequential updates, Faster convergence, Linear system, Iterative method</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-5/convergence-of-iterative-methods.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Convergence of Iterative Methods</div>
+					<div class="item-meta">Iteration matrix, Necessary and sufficient condition, Diagonally dominant</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-5/successive-over-relaxation-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Successive Over Relaxation Method</div>
+					<div class="item-meta">Relaxation factor \(\omega\), Gauss-Seidel modification, Iterative scheme</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-5/power-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Power Method</div>
+					<div class="item-meta">Dominant eigenvalue, Eigenvector, Normalization, Convergence, Matrix iteration</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-5/inverse-power-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Inverse Power Method</div>
+					<div class="item-meta">Eigenvector, Matrix inverse, Convergence</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-5/least-square-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Least Square Method</div>
+					<div class="item-meta">Linear-fit, Polynomial-fit</div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<p class="section-label">Module 6 \(\cdot\) Interpolation</p>
+			<a class="content-item" href="module-6/lagrange-interpolation.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Lagrange Interpolation</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-6/newton-divided-difference-interpolation.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Newton Divided Difference Interpolation</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-6/polynomial-interpolation.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Polynomial Interpolation</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-6/numerical-integration.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Numerical Interpolation</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<p class="section-label">Module 7 \(\cdot\) Method of Undetermined Coefficients</p>
+			<a class="content-item" href="module-7/two-points-newton-cotes-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Two Points Newton Cotes Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-7/three-points-newton-cotes-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Three Points Newton Cotes Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<p class="section-label">Module 8 \(\cdot\) Gauss Legendre Methods</p>
+
+			<a class="content-item" href="module-8/one-point-gauss-legendre-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">One Point Gauss Legendre Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-8/two-point-gauss-legendre-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Two Point Gauss Legendre Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-8/three-point-gauss-legendre-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Three Point Gauss Legendre Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<p class="section-label">Module 9 \(\cdot\) Ordinary Differential Equations</p>
+			<a class="content-item" href="module-9/taylor's-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Taylor's Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-9/euler's-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Euler's Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-9/rk2-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">RK2 Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-9/rk4-method.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">RK4 Method</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+
+			<a class="content-item" href="module-9/stability-of-ode-solvers.html">
+				<div class="item-num"></div>
+				<div class="item-body">
+					<div class="item-title">Stability of ODE Solvers</div>
+					<div class="item-meta"></div>
+				</div>
+				<span class="item-arrow">></span>
+			</a>
+				
+			<script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/list.js"></script>
+		</div>
+	</main>
+
+  	<footer>
+		tended with love & good tea &nbsp;✦&nbsp; Nano library
+	</footer>       
 </body>
 </html>
