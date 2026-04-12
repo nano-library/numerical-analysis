@@ -449,6 +449,200 @@
                 </div>
             </div>
 
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 4</span>
+                    <span class="example-sub">determining the rate of convergence</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Determine the rate of convergence for the Jacobi method for the system:</p>
+                            \[
+                                \begin{bmatrix}
+                                    4 & 0 & 2 \\
+                                    0 & 5 & 2 \\
+                                    5 & 4 & 10
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    x_1 \\
+                                    x_2 \\
+                                    x_3
+                                \end{bmatrix}
+                                =
+                                \begin{bmatrix}
+                                    4 \\
+                                    -3 \\
+                                    2
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>
+                                We first check if the system is suitable for Jacobi iteration. The Jacobi method converges if the spectral radius of the iteration matrix \(B_J\) is less than 1, and the rate of convergence is determined by the spectral radius. <br>
+                                The system is:
+                            </p>
+                            \[
+                                4x_1 + 0x_2 + 2x_3 = 4 \\[10pt]
+                                0x_1 + 5x_2 + 2x_3 = -3 \\[10pt]
+                                5x_1 + 4x_2 + 10x_3 = 2
+                            \]
+
+                            <p>We write it as \(A x = b\).</p>
+                            \[
+                                A = \begin{bmatrix}
+                                    4 & 0 & 2 \\
+                                    0 & 5 & 2 \\
+                                    5 & 4 & 10
+                                \end{bmatrix}
+                            \]
+                            \[
+                                b = 
+                                \begin{bmatrix} 
+                                    4 \\ 
+                                    -3 \\ 
+                                    2
+                                \end{bmatrix}
+                            \]
+
+                            <p>Split \(A\) into diagonal \(D\), and off-diagonal parts \(L+U\):</p>
+                            \[
+                                D = 
+                                \begin{bmatrix} 
+                                    4 & 0 & 0 \\ 
+                                    0 & 5 & 0 \\ 
+                                    0 & 0 & 10 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                L+U = A - D = 
+                                \begin{bmatrix} 
+                                    0 & 0 & 2 \\ 
+                                    0 & 0 & 2 \\ 
+                                    5 & 4 & 0 
+                                \end{bmatrix}
+                            \]
+
+                            <p>The Jacobi iteration matrix is:</p>
+                            \[
+                                B_J = -D^{-1}(L+U)
+                            \]
+                            \[
+                                B_J = -
+                                \begin{bmatrix} 
+                                    1/4 & 0 & 0 \\ 
+                                    0 & 1/5 & 0 \\ 
+                                    0 & 0 & 1/10 
+                                \end{bmatrix}
+                                \begin{bmatrix} 
+                                    0 & 0 & 2 \\ 
+                                    0 & 0 & 2 \\ 
+                                    5 & 4 & 0 
+                                \end{bmatrix}
+                            \]
+
+                            <p>Compute \(B_J\):</p>
+                            \[
+                                B_J = - 
+                                \begin{bmatrix}
+                                    (1/4)(0) & (1/4)(0) & (1/4)(2) \\
+                                    (1/5)(0) & (1/5)(0) & (1/5)(2) \\
+                                    (1/10)(5) & (1/10)(4) & (1/10)(0)
+                                \end{bmatrix}
+                            \]
+                            \[
+                                B_J = - 
+                                \begin{bmatrix}
+                                    0 & 0 & 0.5 \\
+                                    0 & 0 & 0.4 \\
+                                    0.5 & 0.4 & 0
+                                \end{bmatrix}
+                            \]
+                            \[
+                                B_J =
+                                \begin{bmatrix}
+                                    0 & 0 & -0.5 \\
+                                    0 & 0 & -0.4 \\
+                                    -0.5 & -0.4 & 0
+                                \end{bmatrix}
+                            \]
+
+                            <p>The eigenvalues of \(B_J\) satisfy:</p>
+                            \[
+                                \det(B_J - \lambda I) = 0
+                            \]
+                            \[
+                                \det\begin{bmatrix}
+                                -\lambda & 0 & -0.5 \\
+                                0 & -\lambda & -0.4 \\
+                                -0.5 & -0.4 & -\lambda
+                                \end{bmatrix} = 0
+                            \]
+
+                            <p>Expanding:</p>
+                            \[
+                                -\lambda \left[(-\lambda)(-\lambda) - (-0.4)(-0.4) \right] \\
+                                - 0 + (-0.5)\left[ 0(-0.4) - (-\lambda)(-0.5) \right] = 0
+                            \]
+
+                            <p>Simplify the first term:</p>
+                            \[
+                                (-\lambda)[\lambda^2 - 0.16] = -\lambda^3 + 0.16\lambda
+                            \]
+
+                            <p>Second term from the third column expansion:</p>
+                            \[
+                                (-0.5)\left[ 0 - (\lambda)(0.25) \right] = (-0.5)(-0.25\lambda) = 0.125\lambda
+                            \]
+
+                            <p>So the characteristic equation:</p>
+                            \[
+                                -\lambda^3 + 0.16\lambda + 0.125\lambda = 0
+                            \]
+                            \[
+                                -\lambda^3 + 0.285\lambda = 0
+                            \]
+                            \[
+                                \lambda(0.285 - \lambda^2) = 0
+                            \]
+                            \[
+                                \lambda = 0, \quad \lambda = \pm \sqrt{0.285}
+                            \]
+                            \[
+                                \sqrt{0.285} \approx 0.5338
+                            \]
+
+                            <p>
+                                Thus eigenvalues are \(0, 0.5338, -0.5338\). <br>
+                                The spectral radius is:
+                            </p>
+                            \[
+                                \rho(B_J) = 0.5338
+                            \]
+
+                            <p><strong>Rate of convergence</strong> is determined by the spectral radius. The asymptotic convergence factor is \(\rho(B_J)\), and the rate of convergence is:</p>
+                            \[
+                                R = -\ln(\rho(B_J)) = -\ln(0.5338) \approx 0.6276
+                            \]
+
+                            <p>
+                                Therefore, the Jacobi method converges linearly with convergence rate approximately \(0.6276\) per iteration, reducing the error by a factor of about \(0.5338\) each iteration. <br>
+                                <strong>Final answer:</strong>
+                            </p>
+                            \[
+                                \rho(B_J) \approx 0.5338,\quad R \approx 0.6276
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
         </div>
