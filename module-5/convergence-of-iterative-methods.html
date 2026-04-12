@@ -67,10 +67,156 @@
 		</div>
 
 		<div class="content-body">
+            
+            <div class="intro-card">
+                Given a system \(Ax = b\), it can be written as, where \(Q\) is an invertible matrix,
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(Q\mathbf{x}\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(Q\mathbf{x}\)</span>
+                    <span class="op">\(-\)</span>
+                    <span class="var">\(A\mathbf{x}\)</span>
+                    <span class="op">\(+\)</span>
+                    <span class="var">\(\mathbf{b}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\mathbf{x}\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\((I\)</span>
+                    <span class="op">\(-\)</span>
+                    <span class="var">\(Q^{-1}A)\)</span>
+                    <span class="var">\(\mathbf{x}\)</span>
+                    <span class="op">\(+\)</span>
+                    <span class="var">\(Q^{-1}\mathbf{b}\)</span>
+                </div>
+            </div>
 
             <div class="intro-card">
-				✨ 
-			</div>
+                Iterative method can be defined as, for \(k = 0, 1, 2, \ldots\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\mathbf{x}^{(k+1)}\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\((I\)</span>
+                    <span class="op">\(-\)</span>
+                    <span class="var">\(Q^{-1}A)\)</span>
+                    <span class="var">\(\mathbf{x}^{(k)}\)</span>
+                    <span class="op">\(+\)</span>
+                    <span class="var">\(Q^{-1}\mathbf{b}\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                We can find the error as
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\|\mathbf{x}^{(k+1)} - \mathbf{x}\|\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(\|(I - Q^{-1}A)(\mathbf{x}^{(k)} - \mathbf{x})\|\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\|\mathbf{x}^{(k+1)} - \mathbf{x}\|\)</span>
+                    <span class="op">\(\leq\)</span>
+                    <span class="var">\(\|I - Q^{-1}A\|\)</span>
+                    <span class="var">\(\|\mathbf{x}^{(k)} - \mathbf{x}\|\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\|\mathbf{x}^{(k+1)} - \mathbf{x}\|\)</span>
+                    <span class="op">\(\leq\)</span>
+                    <span class="var">\(\|I - Q^{-1}A\|^2\)</span>
+                    <span class="var">\(\|\mathbf{x}^{(k-1)} - \mathbf{x}\|\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\|\mathbf{x}^{(k+1)} - \mathbf{x}\|\)</span>
+                    <span class="op">\(\leq\)</span>
+                    <span class="var">\(\|I - Q^{-1}A\|^{k+1}\)</span>
+                    <span class="var">\(\|\mathbf{x}^{(0)} - \mathbf{x}\|\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\|\mathbf{x}^{(k+1)} - \mathbf{x}\|\)</span>
+                    <span class="op">\(\rightarrow\)</span>
+                    <span class="var">\(0\)</span>
+                    <span>when</span>
+                    <span class="var">\(\|I - Q^{-1}A\|\)</span>
+                    <span class="op">\(&lt;\)</span>
+                    <span class="var">\(1\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Iteration Matrix</div>
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(H\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\((I\)</span>
+                    <span class="op">\(-\)</span>
+                    <span class="var">\(Q^{-1}A)\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Hence, if \(\|H\| < 1\), the iteration method converges.
+            </div>
+
+            <div class="intro-card">
+                The necessary and sufficient condition for the convergence of an iterative method of the form, for \(k = 0, 1, 2, 3, \ldots\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(\mathbf{x}^{(k+1)}\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(H\mathbf{x}^{(k)}\)</span>
+                    <span class="op">\(+\)</span>
+                    <span class="var">\(\mathbf{c},\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                is that the eigenvalues of the iteration matrix satisfy \(|\lambda_i(H)| < 1\), \(i = 1, 2, 3, \ldots , n\) or simply, \(\rho(H) < 1\).
+            </div>
+
+            <div class="intro-card">
+                Suppose, \(A = L + D + U\) where \(L\), \(U\), and \(D\) contain the lower, upper and diagonal parts of \(A\) respectively. 
+                Then, the Jacobi method can be obtained from Equation (21.3) by using \(Q = D\), 
+                whereas the Gauss-Seidel method can be obtained using \(Q = L + D\).
+            </div>
+
+            <div class="intro-card">
+                If \(A\) is strictly diagonally dominant, then the sequence of approximations generated by Jacobi method to solve \(Ax = b\) converges.
+            </div>
                                 
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
