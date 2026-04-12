@@ -69,8 +69,540 @@
 		<div class="content-body">
 
             <div class="intro-card">
-				✨ 
-			</div> 
+                The SOR method is given by, where \(\omega\) is the relaxation parameter,
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(x_i^{(k+1)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\((1 - \omega) x_i^{(k)}\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\frac{\omega}{a_{i,i}}\)</span>
+                    <span class="var">\((b_i\)</span>
+                    <span class="op"> - </span>
+                    <span class="var">\(\displaystyle\sum_{j=1}^{i-1} a_{i,j}x_j^{(k+1)}\)</span>
+                    <span class="op"> - </span>
+                    <span class="var">\(\displaystyle\sum_{j=i+1}^n a_{i,j}x_j^{(k)})\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                In matrix form, the method can be expressed as
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(x^{(k+1)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\((1-\omega)x^{(k)}\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\omega D^{-1} (b - Lx^{(k+1)} - U x^{(k)})\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(x^{(k+1)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\((D + \omega L^{-1})\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(((1 - \omega) D - \omega U)x^{(k)}\)</span>
+                    <span class="op"> + </span>
+                    <span class="var">\(\omega (D + \omega L)^{-1}b\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                Thus, the iteration matrix is
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(H(\omega)\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\((D + \omega L)^{-1}\)</span>
+                    <span class="var">\(\left[(1 - \omega)D - \omega U\right]\)</span>                    
+                </div>
+            </div>
+
+            <div class="intro-card">
+                The optimal value of w can be found as follows:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\omega_{opt}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(arg\)</span>
+                    <span class="op">\(min_{\omega}\)</span>
+                    <span class="var">\(\rho(H(\omega))\)</span>                    
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\omega_{opt}\)</span>
+                    <span class="op">\(\approx\)</span>
+                    <span class="frac">
+                        <span class="frac-num" style="padding: 0px 64px 3px">
+                            <span class="var">2</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">1</span>
+                            <span class="op">+</span>
+                            <span class="var">\(\sqrt{1 + \rho(H_J)^2}\)</span>
+                        </span>
+                    </span>                   
+                </div>
+            </div>
+
+            <div class="intro-card">
+                where \(H_J\) is the iteration matrix of Gauss-Jacobi method. 
+                The value of the relaxation parameter w should fall between 0 and 2. 
+                When \(w > 1\), the method is referred to as an over relaxation method, 
+                while when \(w < 1\), the method is known as an under relaxation method.
+            </div>
+
+            <div class="callout def">
+				<span class="callout-icon">🌸</span>
+				<div>
+				<div class="callout-title">Successive Over Relaxation</div>
+                    <p>The rate of convergence of an iterative method is defined as, where \(H\) is the iteration matrix,</p>
+                </div>
+			</div>  
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">v</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(-\ln{(\rho(H))}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">v</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(-\log_{10} {(\rho(H)})\)</span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                The spectral radius of the SOR method is \(w_{opt} - 1\) and its rate of convergence is
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">v</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(-\ln{(w_{opt} - 1)}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">v</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(-\log_{10} {(w_{opt} - 1)}\)</span>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">finding the optimal relaxation factor and determining the rate of convergence</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>The following system of equations is given:</p>
+                            \[
+                                3x + 2y = 4.5 \\[10pt]
+                                2x + 3y - z = 5 \\[10pt]
+                                -y + 2z = 0.5
+                            \]
+                            <p>Set up the SOR iteration scheme for the solution. Find the optimal relaxation factor and determine the rate of convergence.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>
+                                <strong>Step 1:</strong> Write in Matrix Form \(A = L + D + U\). <br>
+                                The first thing we do is express the coefficient matrix \(A\) as a sum of three parts, the lower triangular \(L\), diagonal \(D\), and upper triangular \(U\).
+                            </p>
+                            \[
+                                A = 
+                                \begin{bmatrix}
+                                3 & 2 & 0\\
+                                2 & 3 & -1\\
+                                0 & 1 & 2\\
+                                \end{bmatrix}
+                            \]
+                            <p>\(L\) contains elements strictly below the diagonal, <br> \(D\) contains only the diagonal elements, <br> \(U\) contains elements strictly above the diagonal.</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                0 & 0 & 0\\
+                                2 & 0 & 0\\
+                                0 & 1 & 0\\
+                                \end{bmatrix}
+                                \\[10pt]
+                                D = 
+                                \begin{bmatrix}
+                                3 & 0 & 0\\
+                                0 & 3 & 0\\
+                                0 & 0 & 2\\
+                                \end{bmatrix}
+                                \\[10pt] 
+                                U = 
+                                \begin{bmatrix}
+                                0 & 2 & 0\\
+                                0 & 0 & -1\\
+                                0 & 0 & 0\\
+                                \end{bmatrix}
+                            \]
+
+                            <p>
+                                <strong>Step 2</strong>: Form the Jacobi Iteration Matrix \(H_J\). <br>
+                                In the Jacobi method, we isolate the diagonal part and move everything else to the right-hand side. The iteration takes the form:
+                            </p>
+                            \[
+                                Dx^{(k+1)}=-(L+U)x^{(k)}+b \\[10pt]
+                                x^{(k+1)}=-D^{-1}(L+U)x^{(k)}+D^{-1}b
+                            \]
+                            <p>So the Jacobi iteration matrix is defined as:</p>
+                            \[
+                                H_J = -D^{-1}(L+U)
+                            \]
+                            <p>First, compute \(D^{-1}\), for a diagonal matrix, simply take the reciprocal of each diagonal entry:</p>
+                            \[
+                                D^{-1} = 
+                                \begin{bmatrix}
+                                    1/3 & 0   & 0\\
+                                    0   & 1/3 & 0\\
+                                    0   & 0   & 1/2\\
+                                \end{bmatrix}
+                            \]
+                            <p>Next, find \((L+U)\)</p>
+                            \[
+                                L + U =
+                                \begin{bmatrix}
+                                    0   & 2   & 0\\
+                                    2   & 0   & -1\\
+                                    0   & -1  & 0\\
+                                \end{bmatrix}
+                            \]
+                            <p>The iteration matrix of the Gauss-Jacobi method is given by</p>
+                            \[
+                                H_J
+                                =
+                                -
+                                \begin{bmatrix}
+                                    1/3 & 0   & 0\\
+                                    0   & 1/3 & 0\\
+                                    0   & 0   & 1/2\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    0   & 2   & 0\\
+                                    2   & 0   & -1\\
+                                    0   & -1  & 0\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                H_J
+                                =
+                                \begin{bmatrix}
+                                    0    & 2/3  & 0\\
+                                    2/3  & 0    & -1/3\\
+                                    0    & -1/2 & 0\\
+                                \end{bmatrix}
+                            \]
+                            <p>
+                                <strong>Step 3</strong>: Find the Eigenvalues of \(H_J\). <br>
+                                The spectral radius \(\rho(H_J)\), the largest absolute eigenvalue, controls how fast the iteration converges. <br> 
+                                To find it, solve: 
+                            </p>
+                            \[
+                                |H_J - \lambda I| = 0
+                            \]
+                            \[
+                                \left|
+                                \begin{bmatrix}
+                                    0     & -2/3 & 0\\
+                                    -2/3  & 0    & 1/2\\
+                                    0     & 1/2  & 0\\
+                                \end{bmatrix}
+                                -
+                                \begin{bmatrix}
+                                    \lambda & 0 & 0\\
+                                    0 & \lambda    & 0\\
+                                    0     & 0  & \lambda\\
+                                \end{bmatrix}
+                                \right|
+                                = 0
+                            \]
+                            \[
+                                \begin{vmatrix}
+                                    -\lambda     & -2/3 & 0\\
+                                    -2/3  & -\lambda    & 1/2\\
+                                    0     & 1/2  & -\lambda\\
+                                \end{vmatrix}
+                                = 0
+                            \]
+                            \[
+                                -\lambda (-\lambda^2 - \frac{1}{6}) - \frac{2}{3}(-\frac{2}{3}\lambda - 0) + 0 = 0 \\[10pt]
+                                - \lambda^3 + \frac{1}{6}\lambda + \frac{4}{9}\lambda = 0 \\[10pt]
+                                - \lambda^3 + \lambda \left(\frac{1}{6} + \frac{4}{9}\right) = 0 \\[10pt] 
+                                - \lambda^3 + \lambda \left(\frac{9}{54} + \frac{24}{54}\right) = 0 \\[10pt] 
+                                - \lambda^3 + \lambda \left(\frac{11}{18}\right) = 0 \\[10pt]
+                                - \lambda \left(\lambda^2 + \frac{11}{18}\right) = 0 \\[10pt]
+                            \]
+
+
+                            <p>
+                                The eigenvalues of \(H_J\) are \(\lambda = 0, \sqrt{\frac{11}{18}}, -\sqrt{\frac{11}{18}}\). <br>
+                                The spectral radius is the largest absolute eigenvalue
+                            </p>
+                            \[
+                                \rho(H_J) = \text{max } \left(|0|, \left|\sqrt{\frac{11}{18}}\right|, \left|-\sqrt{\frac{11}{18}}\right| \right) \\[10pt]
+                                \rho(H_J) = \mu = \sqrt{\frac{11}{18}} \\[10pt] 
+                                \rho(H_J) = \mu \approx 0.7454
+                            \]
+                            <p>
+                                Since \(\rho < 1\), Jacobi converges for this system. <br>
+                                The optimal relaxation parameter for the SOR method is obtained as:
+                            </p>
+                            \[
+                                \omega_{opt} = \frac{2}{1 + \sqrt{1 - \mu^2}} \\[10pt] 
+                                \omega_{opt} = \frac{2}{1 + \sqrt{1 - \frac{11}{18}}} \\[10pt] 
+                                \omega_{opt} \approx 1.2318
+                            \]
+                            \[
+                                \rho(H_{SOR}) = \omega_{opt} - 1 = 0.2318
+                            \]
+                            <p>The rate of convergence of the SOR method is</p>
+                            \[
+                                \text{rate } =  \log_{10}{(\rho(H_{SOR}))} \\[10pt] 
+                                \text{rate } =  \log_{10}{(0.23183)} \\[10pt] 
+                                \text{rate } \approx 0.6348
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">finding the optimal relaxation factor and determining the rate of convergence</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Suppose the system of equations \(Ax = b\) is to be solved with</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    1  & k\\
+                                    2k & 1\\
+                                \end{bmatrix}, \;
+                                k \neq \frac{1}{\sqrt{2}}, \;
+                                \text{ k is real}
+                            \]
+                            <div class="problem-parts">
+                                <div class="problem-part">
+                                    <span class="part-label">a</span>
+                                    <span class="part-content">
+                                    Find a necessary and sufficient condition on \(k\) for convergence of the Gauss-Jacobi method.
+                                    </span>
+                                </div>
+                                <div class="problem-part">
+                                    <span class="part-label">b</span>
+                                    <span class="part-content">
+                                    For \(k = 0.25\), determine the optimal relaxation factor \(\omega\), if the system is to be solved with relaxation method.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>
+                                Part (a): Necessary & Sufficient Condition for Jacobi Convergence <br>
+                                <strong>Step 1:</strong> Write in Matrix Form \(A = L + D + U\)
+                            </p>
+                            <p>The first thing we do is express the coefficient matrix \(A\) as a sum of three parts, the lower triangular \(L\), diagonal \(D\), and upper triangular \(U\).</p>
+                            \[
+                                A = 
+                                \begin{bmatrix}
+                                    1  & k\\
+                                    2k & 1\\
+                                \end{bmatrix}
+                            \]
+                            <p>\(L\) contains elements strictly below the diagonal, <br> \(D\) contains only the diagonal elements, <br> \(U\) contains elements strictly above the diagonal.</p>
+                            \[
+                                L = 
+                                \begin{bmatrix}
+                                    0  & 0\\
+                                    2k & 0\\
+                                \end{bmatrix}
+                                \\[10pt]
+                                D = 
+                                \begin{bmatrix}
+                                    1 & 0\\
+                                    0 & 1\\
+                                \end{bmatrix}
+                                \\[10pt] 
+                                U = 
+                                \begin{bmatrix}
+                                    0 & k\\
+                                    0 & 0\\
+                                \end{bmatrix}
+                            \]
+
+                            <p>
+                                <strong>Step 2</strong>: Form the Jacobi Iteration Matrix \(H_J\). <br>
+                                In the Jacobi method, we isolate the diagonal part and move everything else to the right-hand side. The iteration takes the form:
+                            </p>
+                            \[
+                                Dx^{(k+1)}=-(L+U)x^{(k)}+b \\[10pt]
+                                x^{(k+1)}=-D^{-1}(L+U)x^{(k)}+D^{-1}b
+                            \]
+                            <p>So the Jacobi iteration matrix is defined as:</p>
+                            \[
+                                H_J = -D^{-1}(L+U)
+                            \]
+                            <p>First, compute \(D^{-1}\), for a diagonal matrix, simply take the reciprocal of each diagonal entry:</p>
+                            \[
+                                D^{-1} = 
+                                \begin{bmatrix}
+                                    1  & 0\\
+                                    0 & 1\\
+                                \end{bmatrix}
+                            \]
+                            <p>Next, find \((L+U)\)</p>
+                            \[
+                                L + U =
+                                \begin{bmatrix}
+                                    0  & k\\
+                                    2k & 0\\
+                                \end{bmatrix}
+                            \]
+                            <p>The iteration matrix of the Gauss-Jacobi method is given by</p>
+                            \[
+                                H_J
+                                =
+                                -
+                                \begin{bmatrix}
+                                    1  & 0\\
+                                    0 & 1\\
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    0  & k\\
+                                    2k & 0\\
+                                \end{bmatrix}
+                            \]
+                            \[
+                                H_J
+                                =
+                                \begin{bmatrix}
+                                    0  & -k\\
+                                    -2k & 0\\
+                                \end{bmatrix}
+                            \]
+                            <p>
+                                <strong>Step 3</strong>: Find the Eigenvalues of \(H_J\). <br>
+                                The spectral radius \(\rho(H_J)\), the largest absolute eigenvalue, controls how fast the iteration converges. 
+                                <br> To find it, solve: 
+                            </p>
+                            \[
+                                |H_J - \lambda I| = 0
+                                \\[10pt] 
+                                \left|
+                                    \begin{bmatrix}
+                                    0  & -k\\
+                                    -2k & 0\\
+                                    \end{bmatrix}
+                                    - 
+                                    \begin{bmatrix}
+                                    \lambda  & 0\\
+                                    0 & \lambda\\
+                                    \end{bmatrix}
+                                \right|
+                                = 0
+                                \\[10pt] 
+                                \begin{vmatrix}
+                                    -\lambda  & -k\\
+                                    -2k & -\lambda\\
+                                \end{vmatrix}
+                                = 0 
+                                \\[10pt] 
+                                \lambda^2 - 2k^2 = 0
+                                \\[10pt] 
+                                \lambda = \pm \sqrt{2} |k|
+                            \]
+                            <p>
+                                <strong>Step 4</strong>: Apply convergence condition. <br>
+                                The Jacobi method converges if and only if the spectral radius is less than 1:
+                            </p>
+                            \[
+                                \rho(H_J) < 1 
+                                \\[10pt] 
+                                \sqrt{2} |k| < 1
+                                \\[10pt] 
+                                |k| < \frac{1}{\sqrt{2}}
+                                \\[10pt] 
+                                -\frac{1}{\sqrt{2}} < k <\frac{1}{\sqrt{2}} 
+                            \]
+                            <p>
+                                Part (b): Optimal Relaxation Factor for \(k = 0.25\) <br>
+                                <strong>Step 1</strong>: Compute Spectral Radius at \(k = 0.25\)
+                            </p>
+                            \[
+                                \rho(H_J) = \mu = \sqrt{2}|k|\\[10pt]
+                                \rho(H_J) = \sqrt{2}(0.25) \approx 0.3536
+                            \]
+                            <p>
+                                Since \(\mu = 0.3536\) < 1, system converges with Jacobi. <br>
+                                <strong>Step 2</strong>: The optimal relaxation parameter for the SOR method is obtained as:
+                            </p>
+                            \[
+                                \omega_{opt} = \frac{2}{1 + \sqrt{1 - \mu^2}} \\[10pt] 
+                                \omega_{opt} = \frac{2}{1 + \sqrt{1 - (0.3536)}} \\[10pt] 
+                                \omega_{opt} \approx 1.0333
+                            \]
+                            \[
+                                \rho(H_{SOR}) = \omega_{opt} - 1 = 0.0333
+                            \]
+                            <p>The rate of convergence of the SOR method is</p>
+                            \[
+                                \text{rate } =  \log_{10}{(\rho(H_{SOR}))} \\[10pt] 
+                                \text{rate } =  \log_{10}{(0.0333)} \\[10pt] 
+                                \text{rate } \approx 1.4775
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
