@@ -302,6 +302,113 @@
                     </div>
                 </div>
             </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 3</span>
+                    <span class="example-sub">solving system of linear equations</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Consider the system of equations,</p>
+                            \[
+                                2x-y = 1\\[10pt]
+                                -x + 2y - z = 0\\[10pt]
+                                -y - 2z - w = 0\\[10pt]
+                                -z + 2w = 1
+                            \]
+                            <p>Apply Gauss-Seidel iteration scheme to the system. Starting with \(x^{(0)} = 0\) as initial approximation, iterate 3 times.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>The iteration formula are written as:</p>
+                            \[
+                                x^{(k+1)} = \frac{1+y^{(k)}}{2}\\[10pt]
+                                y^{(k+1)} = \frac{x^{(k)}+z^{(k)}}{2}\\[10pt]
+                                z^{(k+1)} = \frac{-y^{(k)}-w^{(k)}}{2} \\[10pt]
+                                w^{(k+1)} = \frac{1 + z^{(k)}}{2}
+                            \]
+                            <p>
+                                We should start with a initial guess. <br>
+                                Let us set \(x^{(0)} = (0, 0, 0, 0)^T\). <br>
+                                <strong>Iteration 1</strong> We have the following updated solution
+                            </p>
+                            \[
+                                x^{(1)} = \frac{1+y^{(0)}}{2} \\[10pt]
+                                x^{(1)} = \frac{1+0}{2} \\[10pt]
+                                x^{(1)} = \frac{1}{2} = 0.500
+                            \]
+                            \[
+                                y^{(1)} = \frac{x^{(1)}+z^{(0)}}{2} \\[10pt]
+                                y^{(1)} = \frac{0.5+0}{2} \\[10pt]
+                                y^{(1)} = \frac{0.5}{2} = 0.2500
+                            \]
+                            \[
+                                z^{(1)} = \frac{-y^{(1)}-w^{(0)}}{2} \\[10pt]
+                                z^{(1)} = \frac{-0.25-0}{2} \\[10pt]
+                                z^{(1)} = \frac{-0.25}{2} = -0.1250
+                            \]
+                            \[
+                                w^{(1)} = \frac{1 + z^{(1)}}{2} \\[10pt]
+                                w^{(1)} = \frac{1 - 0.125}{2} \\[10pt]
+                                w^{(1)} = \frac{0.875}{2} = 0.4375
+                            \]
+                            <p><strong>Iteration 2</strong> We use \((x^{(1)}, y^{(1)}, z^{(1)}, w^{(1)}) = (0.5, 0.25, -0.125, 0.4375)^T\) to get \((x^{(2)}, y^{(2)}, z^{(2)}, w^{(2)})\)</p>
+                            \[
+                                x^{(2)} = \frac{1+y^{(1)}}{2} \\[10pt]
+                                x^{(2)} = \frac{1+0.25}{2} \\[10pt]
+                                x^{(2)} = \frac{1.25}{2} = 0.6250
+                            \]
+                            \[
+                                y^{(2)} = \frac{x^{(2)}+z^{(1)}}{2} \\[10pt]
+                                y^{(2)} = \frac{0.625-0.125}{2} \\[10pt]
+                                y^{(2)} = \frac{0.5}{2} = 0.2500
+                            \]
+                            \[
+                                z^{(2)} = \frac{-y^{(2)}-w^{(1)}}{2} \\[10pt]
+                                z^{(2)} = \frac{-0.25-0.4375}{2} \\[10pt]
+                                z^{(2)} = \frac{-0.6875}{2} = -0.3437
+                            \]
+                            \[
+                                w^{(2)} = \frac{1 + z^{(2)}}{2} \\[10pt]
+                                w^{(2)} = \frac{1 - 0.3437}{2} \\[10pt]
+                                w^{(2)} = \frac{0.6563}{2} = 0.3281
+                            \]
+                            <p><strong>Iteration 3</strong> We use \((x^{(2)}, y^{(2)}, z^{(2)}, w^{(2)}) = (0.625, 0.25, -0.3437, 0.3281)^T\) to get \((x^{(3)}, y^{(3)}, z^{(3)}, w^{(3)})\)</p>
+                            \[
+                                x^{(3)} = \frac{1+y^{(2)}}{2} \\[10pt]
+                                x^{(3)} = \frac{1+0.25}{2} \\[10pt]
+                                x^{(3)} = \frac{1.25}{2} = 0.6250
+                            \]
+                            \[
+                                y^{(3)} = \frac{x^{(3)}+z^{(2)}}{2} \\[10pt]
+                                y^{(3)} = \frac{0.625-0.3437}{2} \\[10pt]
+                                y^{(3)} = \frac{0.2813}{2} = 0.1406
+                            \]
+                            \[
+                                z^{(3)} = \frac{-y^{(3)}-w^{(2)}}{2} \\[10pt]
+                                z^{(3)} = \frac{-0.1406-0.3281}{2} \\[10pt]
+                                z^{(3)} = \frac{-0.4687}{2} = -0.2343
+                            \]
+                            \[
+                                w^{(3)} = \frac{1 + z^{(2)}}{2} \\[10pt]
+                                w^{(3)} = \frac{1 - 0.2343}{2} \\[10pt]
+                                w^{(3)} = \frac{0.7657}{2} = 0.3828
+                            \]
+                            <p>Therefore,</p>
+                            \[
+                                (x^{(3)}, y^{(3)}, z^{(3)}, w^{(3)}) = (0.6250, 0.1406, -0.2343, 0.3828)^T
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
 			    
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
