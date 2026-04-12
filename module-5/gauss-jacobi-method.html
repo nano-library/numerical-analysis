@@ -334,6 +334,121 @@
                 </div>
             </div>
 
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 3</span>
+                    <span class="example-sub">solving system of equations</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Solve the following system of equations using Jacobi iteration scheme.</p>
+                            \[
+                                \begin{bmatrix}
+                                    4 & 1 & 0 & 1 \\
+                                    1 & 4 & 1 & 0 \\
+                                    0 & 1 & 4 & 1 \\
+                                    1 & 0 & 1 & 4
+                                \end{bmatrix}
+                                x = 
+                                \begin{bmatrix}
+                                    2 \\
+                                    -2 \\
+                                    2 \\
+                                    -2
+                                \end{bmatrix}
+                            \]
+                            <p>Starting with \(x^{(0)} = 0\) as initial approximation, iterate 3 times.</p>
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>The iteration formulas are written as:</p>
+                            \[
+                                x_1^{(k+1)} = \frac{1}{4}(2 - x_2^{(k)} - x_4^{(k)}) \\[10pt]
+                                x_2^{(k+1)} = \frac{1}{4}(-2 - x_1^{(k)} - x_3^{(k)}) \\[10pt]
+                                x_3^{(k+1)} = \frac{1}{4}(2 - x_2^{(k)} - x_4^{(k)}) \\[10pt]
+                                x_4^{(k+1)} = \frac{1}{4}(-2 - x_1^{(k)} - x_3^{(k)})
+                            \]
+
+                            <p>
+                                We should start with an initial guess. <br>
+                                Let us set \(x^{(0)} = (0, 0, 0, 0)^T\). <br>
+                                <strong>Iteration 1</strong>: We have the following updated solution
+                            </p>
+
+                            \[
+                                x_1^{(1)} = \frac{1}{4}(2 + x_2^{(0)} - x_4^{(0)}) \\[10pt]
+                                x_2^{(1)} = \frac{1}{4}(-2 - x_1^{(0)} - x_3^{(0)}) \\[10pt]
+                                x_3^{(1)} = \frac{1}{4}(2 - x_2^{(0)} - x_4^{(0)}) \\[10pt]
+                                x_4^{(1)} = \frac{1}{4}(-2 - x_1^{(0)} - x_3^{(0)})
+                            \]
+
+                            <p>Substituting the initial guess values,</p>
+
+                            \[
+                                x_1^{(1)} = \frac{1}{4}(2 - 0 - 0) \\[10pt]
+                                x_2^{(1)} = \frac{1}{4}(-2 - 0 - 0) \\[10pt]
+                                x_3^{(1)} = \frac{1}{4}(2 - 0 - 0) \\[10pt]
+                                x_4^{(1)} = \frac{1}{4}(-2 - 0 - 0)
+                            \]
+
+                            <p>Simplifying,</p>
+
+                            \[
+                                x_1^{(1)} = \frac{2}{4} = 0.5 \\[10pt]
+                                x_2^{(1)} = \frac{-2}{4} = -0.5 \\[10pt]
+                                x_3^{(1)} = \frac{2}{4} = 0.5 \\[10pt]
+                                x_4^{(1)} = \frac{-2}{4} = -0.5
+                            \]
+
+                            <p><strong>Iteration 2</strong>: We use \(x^{(1)} = (0.5, -0.5, 0.5, -0.5)^T\) to get \(x^{(2)}\)</p>
+
+                            \[
+                                x_1^{(2)} = \frac{1}{4}(2 - x_2^{(1)} - x_4^{(1)}) \\[10pt]
+                                x_2^{(2)} = \frac{1}{4}(-2 - x_1^{(1)} - x_3^{(1)}) \\[10pt]
+                                x_3^{(2)} = \frac{1}{4}(2 - x_2^{(1)} - x_4^{(1)}) \\[10pt]
+                                x_4^{(2)} = \frac{1}{4}(-2 - x_1^{(1)} - x_3^{(1)})
+                            \]
+
+                            <p>Substituting the \(x^{(1)}\) values,</p>
+
+                            \[
+                                x_1^{(2)} = \frac{1}{4}(2 - (-0.5) - (-0.5)) = \frac{1}{4}(2 + 0.5 + 0.5) = \frac{3}{4} = 0.75 \\[10pt]
+                                x_2^{(2)} = \frac{1}{4}(-2 - 0.5 - 0.5) = \frac{1}{4}(-3) = -0.75 \\[10pt]
+                                x_3^{(2)} = \frac{1}{4}(2 - (-0.5) - (-0.5)) = 0.75 \\[10pt]
+                                x_4^{(2)} = \frac{1}{4}(-2 - 0.5 - 0.5) = -0.75
+                            \]
+
+                            <p>Therefore,</p>
+
+                            \[
+                                x^{(2)} = (0.75, -0.75, 0.75, -0.75)^T
+                            \]
+
+                            <p><strong>Iteration 3</strong>: We use \(x^{(2)} = (0.75, -0.75, 0.75, -0.75)^T\)</p>
+
+                            \[
+                                x_1^{(3)} = \frac{1}{4}(2 - (-0.75) - (-0.75)) = \frac{1}{4}(2 + 0.75 + 0.75) = \frac{3.5}{4} = 0.875 \\[10pt]
+                                x_2^{(3)} = \frac{1}{4}(-2 - 0.75 - 0.75) = \frac{-3.5}{4} = -0.875 \\[10pt]
+                                x_3^{(3)} = \frac{1}{4}(2 - (-0.75) - (-0.75)) = 0.875 \\[10pt]
+                                x_4^{(3)} = \frac{1}{4}(-2 - 0.75 - 0.75) = -0.875
+                            \]
+
+                            <p>Therefore,</p> 
+
+                            \[
+                                x^{(3)} = (0.875, -0.875, 0.875, -0.875)^T
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
         </div>
