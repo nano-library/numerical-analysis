@@ -69,9 +69,242 @@
 		<div class="content-body">
             
             <div class="intro-card">
-                ✨
-            </div>    
-                   
+                ✨ Newton's divided difference method is often preferred due to its incremental nature. 
+                Unlike Lagrange interpolation, which requires recomputing the entire polynomial when adding new data, Newton's method builds on previous calculations, making it ideal for sequential or real-time data. 
+                It also offers better insight through divided differences, which resemble derivatives, and is more efficient and flexible for large datasets.
+            </div>
+
+            <div class="intro-card">
+                Given a set of \(n + 1\) distinct data points \((x_0, y_0), (x_1, y_1), \ldots , (x_n, y_n)\),  <br>
+                where \(x_0  < x_1 < \ldots < x_n\), the Newton divided difference (DD) polynomial is expressed as:
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula" style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem;">
+                        <span class="var">\(P(x)\)</span>
+                        <span class="op">\(=\)</span>
+                        <span class="var">\(f(x_0)\)</span>
+                        <span class="op">\(+\)</span>
+                        <span class="var">\((x - x_0)\)</span>
+                        <span class="var">\(f[x_0, x_1]\)</span>
+                    </div>
+
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; padding-left: 1.5rem;">
+                        <span class="op">\(+\)</span>
+                        <span class="var">\((x - x_0)\)</span>
+                        <span class="var">\((x - x_1)\)</span>
+                        <span class="var">\(f[x_0, x_1, x_2]\)</span>
+                    </div>
+
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; padding-left: 1.5rem;">
+                        <span class="op">\(+\)</span>
+                        <span class="op">\(\cdots\)</span>
+                    </div>
+
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; padding-left: 1.5rem;">
+                        <span class="op">\(+\)</span>
+                        <span class="var">\((x - x_0)\)</span>
+                        <span class="var">\((x - x_1)\)</span>
+                        <span class="op">\(\cdots\)</span>
+                        <span class="var">\((x - x_{n-1})\)</span>
+                        <span class="var">\(f[x_0, x_1, \ldots, x_n]\)</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="intro-card">
+                where \(f[x_i, \ldots , x_j]\) denotes the divided differences, defined recursively by, <br> for \(i = 0, 1, \ldots, n\), 
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(f[x_i]\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="var">\(f(x_i),\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(f[x_i, x_{i+1}, \ldots, x_{i+k}]\)</span>
+                        <span class="op">\(=\)</span>
+                        <span class="frac">
+                            <span class="frac-num">
+                                <span class="var">\(f[x_{i+1}, \ldots, x_{i+k}]\)</span>
+                                <span class="op">\(-\)</span>
+                                <span class="var">\(f[x_i, \ldots, x_{i+k-1}]\)</span>
+                            </span>
+                        <span class="frac-den">
+                            <span class="var">\(x_{i+k}\)</span>
+                            <span class="op">\(-\)</span>
+                            <span class="var">\(x_i\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <tr>
+                        <th>\(x\)</th>
+                        <th>\(f(x)\)</th>
+                        <th>First DD</th>
+                        <th>Second DD</th>
+                    </tr>
+                    <tr>
+                        <td>\(x_0\)</td>
+                        <td>\(f[x_0]\)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>\(f[x_0, x_1]\)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\(x_1\)</td>
+                        <td>\(f[x_1]\)</td>
+                        <td></td>
+                        <td>\(f[x_0, x_1, x_2]\)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>\(f[x_1, x_2]\)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\(x_2\)</td>
+                        <td>\(f[x_2]\)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="intro-card">
+                For distinct points \(x_0, x_1, \ldots , x_n\), where \(w(x) = \displaystyle\prod_{j=0}^n (x - x_j)\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(f[x_0, x_1, \ldots, x_k]\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="op">\(\displaystyle\sum_{i=0}^{n}\)</span>
+                    <span class="frac">
+                        <span class="frac-num" style="padding: 0px 48px 3px;">
+                            <span class="var">\(f(x_i)\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\displaystyle\prod_{j=0,\, j\neq i}^{n}(x_i - x_j)\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦</div>
+                <div class="formula">
+                    <span class="var">\(f[x_0, x_1, \ldots, x_k]\)</span>
+                    <span class="op">\(=\)</span>
+                    <span class="op">\(\displaystyle\sum_{i=0}^{n}\)</span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(f(x_i)\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(w'(x_i)\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 1</span>
+                    <span class="example-sub">constructing newton divided difference polynomial</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            Consider the data points (1, 2), (3, 5), (4, 6), and (5, 8). 
+                            We aim to construct the Newton divided difference polynomial and approximate the value at \(x = 2\).
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p><strong>Step 1</strong>: Construct the Divided Difference Table</p>
+                            <p>Using the given points, we compute the divided differences as follows:</p>
+                            \[
+                                \begin{array}{ccccc}
+                                    x & f(x) & \text{First DD} & \text{Second DD} & \text{Third DD} \\
+                                    \hline
+                                    1 & 2 & & & \\
+                                    & & \dfrac{5-2}{3-1} = \dfrac{3}{2} & & \\
+                                    3 & 5 & & \dfrac{1-\frac{3}{2}}{4-1} = -\dfrac{1}{6} & \\
+                                    & & \dfrac{6-5}{4-3} = 1 & & \dfrac{\frac{1}{2}-\left(-\frac{1}{6}\right)}{5-1} = \dfrac{1}{6} \\
+                                    4 & 6 & & \dfrac{2-1}{5-3} = \dfrac{1}{2} & \\
+                                    & & \dfrac{8-6}{5-4} = 2 & & \\
+                                    5 & 8 & & & \\
+                                \end{array}
+                            \]
+                            <p><strong>Step 2</strong>: Form the Polynomial</p>
+                            \[
+                                \begin{aligned}
+                                P(x) = \; &f(x_0) + (x - x_0)f[x_0, x_1] \\
+                                        &+ (x - x_0)(x - x_1)f[x_0, x_1, x_2] \\
+                                        &+ \cdots \\
+                                        &+ (x - x_0)(x - x_1) \cdots (x - x_{n-1})f[x_0, x_1, \ldots, x_n],
+                                \end{aligned}
+                            \]
+                            <p>The interpolating polynomial is:</p>
+                            \[
+                                \begin{aligned}
+                                P(x) = \; & 2 + (x - 1)(\frac{3}{2}) \\
+                                        &+ (x - 1)(x - 3)(-\frac{1}{6}) \\
+                                        &+ (x - 1)(x - 3)(x - 4)(\frac{1}{6})
+                                \end{aligned}
+                            \]
+                            <p><strong>Step 3</strong>: Substitute \(x = 2\):</p>
+                            \[
+                                \begin{aligned}
+                                P(2) = \; & 2 + (2 - 1)(\frac{3}{2}) \\
+                                        &+ (2 - 1)(2 - 3)(-\frac{1}{6}) \\
+                                        &+ (2 - 1)(2 - 3)(2 - 4)(\frac{1}{6})
+                                \end{aligned}
+                            \]
+                            \[
+                                \begin{aligned}
+                                P(2) = \; & 2 + (1)(1.5) \\
+                                        &+ (1)(-1)(-0.1666) \\
+                                        &+ (1)(-1)(-2)(0.1666)
+                                \end{aligned}
+                            \]
+                            \[
+                                 P(2) = 2 + 1.5 + 0.1666 + 0.3332
+                            \]
+                            <p>Therefore, </p>
+                            \[
+                                P(2) \approx 3.9998
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
         </div>
