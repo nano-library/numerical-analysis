@@ -963,7 +963,179 @@
                     </div>
                 </div>
             </div>
-            
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 3</span>
+                    <span class="example-sub">finding the dominant eigenvalue and its corresponding eigenvector</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Consider the following \(3 \times 3\) matrix:</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    3 & 1 & 0\\
+                                    1 & 2 & 1\\
+                                    0 & 1 & 4 
+                                \end{bmatrix}
+                            \]
+                            <p>Use the power method to find the dominant eigenvalue and its corresponding eigenvector. With initial guess</p>
+                            \[
+                                v^{(0)} =
+                                \begin{bmatrix}
+                                    1 \\
+                                    1 \\
+                                    1  
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p><strong>Iteration 1:</strong></p>
+                            \[
+                                w^{(1)} = A v^{(0)} \\[10pt]
+                            \]
+                            \[
+                                w^{(1)} =
+                                \begin{bmatrix}
+                                    3 & 1 & 0\\
+                                    1 & 2 & 1\\
+                                    0 & 1 & 4 
+                                \end{bmatrix}
+                                \begin{bmatrix}
+                                    1 \\
+                                    1 \\
+                                    1  
+                                \end{bmatrix}
+                            \]
+                            \[
+                                w^{(1)} 
+                                = 
+                                \begin{bmatrix} 
+                                    4 \\ 
+                                    4 \\ 
+                                    5 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \alpha^{(1)} = \|w^{(1)}\|_{\infty}\\[10pt]
+                                \alpha^{(1)} = \max(4,4,5) = 5
+                            \]
+                            \[
+                                \lambda^{(1)} = 5
+                            \]
+                            \[
+                                v^{(1)} = \frac{1}{5} 
+                                \begin{bmatrix} 
+                                    4 \\ 
+                                    4 \\ 
+                                    5
+                                \end{bmatrix} 
+                                \\[10pt] 
+                                v^{(1)} = 
+                                \begin{bmatrix} 
+                                    0.8 \\ 
+                                    0.8 \\ 
+                                    1 
+                                \end{bmatrix}
+                            \]
+
+                            <p><strong>Iteration 2:</strong></p>
+                            \[
+                                w^{(2)} = A v^{(1)}
+                            \] 
+                            \[
+                                w^{(2)} = 
+                                \begin{bmatrix} 
+                                    3.2 \\ 
+                                    3.4 \\ 
+                                    4.8 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \alpha^{(2)} = \|w^{(2)}\|_{\infty}\\[10pt]
+                                \alpha^{(2)} = \max(3.2,3.4,4.8) = 4.8
+                            \]
+                            \[
+                                \lambda^{(2)} = 4.8
+                            \]
+                            \[
+                                v^{(2)} = \frac{1}{4.8} 
+                                \begin{bmatrix} 
+                                    3.2 \\ 
+                                    3.4 \\ 
+                                    4.8 
+                                \end{bmatrix} 
+                            \]
+                            \[
+                                v^{(2)} = 
+                                \begin{bmatrix} 
+                                    0.6667 \\ 
+                                    0.7083 \\ 
+                                    1 
+                                \end{bmatrix}
+                            \]
+
+                            <p><strong>Iteration 3:</strong></p>
+                            \[
+                                w^{(3)} = A v^{(2)} 
+                            \]
+                            \[
+                                w^{(3)} = 
+                                \begin{bmatrix}
+                                    2.7084 \\ 
+                                    3.0833 \\ 
+                                    4.7083 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \alpha^{(3)} = \|w^{(3)}\|_{\infty}\\[10pt]
+                                \alpha^{(3)} = \max(2.7084, 3.0833, 4.7083) = 4.7083
+                            \]
+                            \[
+                                \lambda^{(3)} = 4.7083
+                            \]
+                            \[
+                                v^{(3)} = \frac{1}{4.7083} 
+                                \begin{bmatrix} 
+                                    2.7084 \\ 
+                                    3.0833 \\ 
+                                    4.7083 
+                                \end{bmatrix}  
+                            \]
+                            \[
+                                v^{(3)} = 
+                                \begin{bmatrix} 
+                                    0.5753 \\ 
+                                    0.6550 \\ 
+                                    1
+                                \end{bmatrix}
+                            \]
+
+                            <p><strong>Result after 3 iterations:</strong></p>
+                            \[
+                                \lambda_{\max} \approx 4.7083
+                            \]
+                            \[
+                                v_{\max} \approx 
+                                \begin{bmatrix} 
+                                    0.575 \\ 
+                                    0.655 \\ 
+                                    1 
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
         </div>
