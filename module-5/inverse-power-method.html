@@ -69,9 +69,349 @@
 
 		<div class="content-body">
 
-			<div class="intro-card">
-				✨ 
+            <div class="intro-card">
+                The eigenvalues of \(A^{-1}\) are the reciprocal of the eigenvalues of A. 
+                Therefore, the reciprocal of the dominating eigenvalue of \(A^{-1}\) is the smallest eigenvalue of A. 
+                The following iteration formula finds the dominating eigenvector of \(A^{-1}\), \(k = 1,2,\ldots\),
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Inverse Power Method</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(y^{(k)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(A^{-1} v^{(k-1)}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Inverse Power Method</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\alpha^{(k)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="var">\(\|y^{(k)}\|_{\infty}\)</span>
+                </div>
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-label">✦ Inverse Power Method</div>
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(v^{(k)}\)</span>
+                    <span class="op"> = </span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">\(y^{(k)}\)</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\|y^{(k)}\|_{\infty}\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="intro-card">
+                We do not calculate the inverse in practice, instead we solve the system \(Ay^{(k)} = v^{(k - 1)}\) to get \(y^{(k)}\). 
+                One can apply LU decomposition here. 
+                As eigenvector of A and \(A^{-1}\) remains the same we only have to find the associated eigenvalue of A using
+            </div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(\lambda^{(k)}_{\text{min}}\)</span>
+                    <span class="op"> = </span>
+                    <span class="frac">
+                        <span class="frac-num">
+                            <span class="var">1</span>
+                        </span>
+                        <span class="frac-den">
+                            <span class="var">\(\alpha^{(k)}\)</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="callout note">
+				<span class="callout-icon">💠</span>
+				<div>
+				<div class="callout-title">Note</div>
+					For the convergence of inverse power method, we require below equation,
+				</div>
 			</div>
+
+            <div class="formula-card">
+                <div class="formula-number">✦ </div>
+                <div class="formula">
+                    <span class="var">\(|\lambda_1|\)</span>
+                    <span class="op"> > </span>
+                    <span class="var">\(|\lambda_2|\)</span>
+                    <span class="op">\(\geq\)</span>
+                    <span class="var">\(|\lambda_3|\)</span>
+                    <span class="op">\(\geq\)</span>
+                    <span class="var">\(\ldots\)</span>
+                    <span class="op">\(\geq\)</span>
+                    <span class="var">\(|\lambda_{n-1}|\)</span>
+                    <span class="op">></span>
+                    <span class="var">\(|\lambda_n|\)</span>
+                </div>
+            </div>        
+
+            <div class="example">
+                <div class="example-header">
+                    <span class="example-icon">✦</span>
+                    <span class="example-title">Example 2</span>
+                    <span class="example-sub">finding the smallest eigenvalue</span>
+                </div>
+                <div class="example-body">
+                    <div class="example-block problem">
+                        <div class="block-label">Problem</div>
+                        <div class="block-content">
+                            <p>Consider the following \(2 \times 2\) matrix:</p>
+                            \[
+                                A =
+                                \begin{bmatrix}
+                                    3 & 1\\
+                                    1 & 2\\
+                                \end{bmatrix}
+                            \]
+                            <p>Use the inverse power method to find the smallest eigenvalue in magnitude and its corresponding eigenvector.</p>
+                            <p>Initial guess:</p>
+                            \[
+                                v^{(0)} = 
+                                \begin{bmatrix} 
+                                    1\\
+                                    1
+                                \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+
+                    <div class="example-block solution">
+                        <div class="block-label">Solution</div>
+                        <div class="block-content">
+                            <p>First compute \(A^{-1}\) for a \(2\times2\) matrix:</p>
+                            \[
+                                A^{-1} = \frac{1}{\det(A)} 
+                                \begin{bmatrix} 
+                                    d & -b \\ 
+                                    -c & a 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \det(A) = (3)(2) - (1)(1) = 6 - 1 = 5
+                            \]
+                            \[
+                                A^{-1} = \frac{1}{5} 
+                                \begin{bmatrix} 
+                                2 & -1 \\ 
+                                -1 & 3 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                A^{-1} =
+                                \begin{bmatrix}
+                                    0.4 & -0.2 \\
+                                    -0.2 & 0.6
+                                \end{bmatrix}
+                            \]
+
+                            <p><strong>Iteration 1:</strong></p>
+                            \[
+                                y^{(1)} = A^{-1} v^{(0)}
+                            \]
+                            \[
+                                y^{(1)} = 
+                                \begin{bmatrix}
+                                    0.4 & -0.2 \\
+                                    -0.2 & 0.6
+                                \end{bmatrix}
+                                \begin{bmatrix} 
+                                    1 \\ 
+                                    1
+                                \end{bmatrix}
+                                = 
+                                \begin{bmatrix} 
+                                    0.2 \\ 
+                                    0.4 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \alpha^{(1)} = \|y^{(1)}\|_{\infty} = \max(|0.2|, |0.4|) = 0.4
+                            \]
+                            \[
+                                \lambda^{(1)} = \frac{1}{\alpha^{(1)}} = \frac{1}{0.4} = 2.5
+                            \]
+                            \[
+                                v^{(1)} = \frac{y^{(1)}}{\alpha^{(1)}} \\[10pt]
+                                v^{(1)} = \frac{1}{0.4} 
+                                \begin{bmatrix} 
+                                    0.2 \\ 
+                                    0.4 
+                                \end{bmatrix} \\[10pt]
+                                v^{(1)} = 
+                                \begin{bmatrix} 
+                                    0.5 \\ 
+                                    1 
+                                \end{bmatrix}
+                            \]
+                            <p>Scaling so first component = 1</p>
+                            \[
+                                v^{(1)} = 
+                                \begin{bmatrix} 
+                                    1 \\ 
+                                    2 
+                                \end{bmatrix}
+                            \]
+                            <p><strong>Iteration 2:</strong></p>
+                            \[
+                                y^{(2)} = A^{-1} v^{(1)}
+                            \]
+                            \[
+                                y^{(2)} = 
+                                \begin{bmatrix}
+                                    0.4 & -0.2 \\
+                                    -0.2 & 0.6
+                                \end{bmatrix}
+                                \begin{bmatrix} 
+                                    0.5 \\ 
+                                    1
+                                \end{bmatrix}
+                                = 
+                                \begin{bmatrix} 
+                                    0 \\ 
+                                    0.5 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \alpha^{(2)} = \|y^{(2)}\|_{\infty} = \max(|0|, |0.5|) = 0.5
+                            \]
+                            \[
+                                \lambda^{(2)} = \frac{1}{\alpha^{(2)}} = \frac{1}{0.5} = 2
+                            \]
+                            \[
+                                v^{(2)} = \frac{y^{(1)}}{\alpha^{(1)}} \\[10pt]
+                                v^{(2)} = \frac{1}{0.5}
+                                \begin{bmatrix} 
+                                    0 \\ 
+                                    0.5 
+                                \end{bmatrix} \\[10pt]
+                                v^{(2)} = 
+                                \begin{bmatrix} 
+                                    0 \\ 
+                                    1
+                                \end{bmatrix}
+                            \]
+                            <p><strong>Iteration 3:</strong></p>
+                            \[
+                                y^{(3)} = A^{-1} v^{(2)}
+                            \]
+                            \[
+                                y^{(3)} = 
+                                \begin{bmatrix}
+                                    0.4 & -0.2 \\
+                                    -0.2 & 0.6
+                                \end{bmatrix}
+                                \begin{bmatrix} 
+                                    0 \\ 
+                                    1
+                                \end{bmatrix}
+                                = 
+                                \begin{bmatrix} 
+                                    -0.2 \\ 
+                                    0.6 
+                                \end{bmatrix}
+                            \]
+                            \[
+                                \alpha^{(3)} = \|y^{(3)}\|_{\infty} = \max(|-0.2|, |0.6|) = 0.6
+                            \]
+                            \[
+                                \lambda^{(3)} = \frac{1}{\alpha^{(3)}} = \frac{1}{0.6} = 1.6666
+                            \]
+                            \[
+                                v^{(3)} = \frac{y^{(1)}}{\alpha^{(1)}} \\[10pt]
+                                v^{(3)} = \frac{1}{0.6} 
+                                \begin{bmatrix} 
+                                    -0.2 \\ 
+                                    0.6
+                                \end{bmatrix} \\[10pt]
+                                v^{(3)} = 
+                                \begin{bmatrix} 
+                                    -\frac{1}{3} \\ 
+                                    1
+                                \end{bmatrix}
+                            \]
+                            <p>Scaling so first component = 1</p>
+                            \[
+                                v^{(1)} = 
+                                \begin{bmatrix} 
+                                    1 \\ 
+                                    -3 
+                                \end{bmatrix}
+                            \]
+
+                            <p><strong>Eigenvalues of A:</strong></p>
+                            \[
+                                |A - \lambda I| = 0
+                            \]
+                            \[
+                                (3-\lambda)(2-\lambda) - 1 = 0 \\[10pt] 
+                                \lambda^2 - 5\lambda + 6 - 1 =  0\\[10pt] 
+                                \lambda^2 - 5\lambda + 5 = 0
+                            \]
+                            \[
+                                \lambda_1 \approx 3.6180, \quad \lambda_2 \approx 1.3820
+                            \]
+                            <p>
+                                The smallest eigenvalue in magnitude is \(\lambda_{\min} \approx 1.3820\). <br>
+                                <strong>Eigenvector for \(\lambda_{\min}\):</strong>
+                            </p>
+                            \[
+                                (A - \lambda_{\min} I)x = 0
+                            \]
+                            \[
+                                \begin{bmatrix}
+                                    3 - 1.3820 & 1 \\
+                                    1 & 2 - 1.3820
+                                \end{bmatrix}
+                                \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+                                = \begin{bmatrix}
+                                    1.6181 & 1 \\
+                                    1 & 0.6181
+                                \end{bmatrix}
+                                \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} = 0
+                            \]
+                            <p>
+                                From first row: \(1.6180 x_1 + x_2 = 0 \Rightarrow x_2 = -1.6181 x_1\). <br>
+                                Let \(x_1 = 1\), then \(x_2 = -1.6181\). <br>
+                                Normalized dominant eigenvector (first component 1): 
+                                \[
+                                    v_{\min} = 
+                                    \begin{bmatrix} 
+                                        1 \\ 
+                                        -1.6181 
+                                    \end{bmatrix}
+                                \]
+                                The inverse power method with \(y^{(k+1)} = A^{-1}v^{(k)}\) yields:
+                            </p>
+
+                            <p>\(\lambda^{(1)} = 2.5\), \(v^{(1)} = [1, 2]^T\)</p>
+                            <p>\(\lambda^{(2)} = 2.0\), \(v^{(2)} = [0, 1]^T\)</p>
+                            <p>
+                                \(\lambda^{(3)} = 1.6666\), \(v^{(3)} = [1, -3]^T\). <br>
+                                The approximations converge to the exact smallest eigenvalue \(\lambda_{\min} \approx 1.3820\) and eigenvector \([1, -1.6180]^T\). <br>
+                                <strong>Final approximation after 3 iterations:</strong>
+                            </p>
+                            \[
+                                \lambda_{\min} \approx 1.6666, \qquad
+                                v_{\min} \approx \begin{bmatrix} 1 \\ -3 \end{bmatrix}
+                            \]
+                        </div>
+                    </div>
+                </div>
+            </div>
             
 	        <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/topic.js"></script>
             <script src="https://nano-library.github.io/dynamic-behavior-and-interactivity/navigation.js"></script>
